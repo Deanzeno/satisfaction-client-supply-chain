@@ -1,0 +1,15 @@
+{
+  "mappings": {
+    "properties": {
+      "review_id":          { "type": "keyword" },
+      "company_name":       { "type": "keyword" },
+      "author":             { "type": "keyword" },
+      "date_avis":          { "type": "date" },
+      "nb_etoiles":         { "type": "integer" },
+      "titre":              { "type": "text" },
+      "contenu":            { "type": "text" },
+      "entreprise_repond":  { "type": "boolean" },
+      "reponse_entreprise": { "type": "text" }
+    }
+  }
+}

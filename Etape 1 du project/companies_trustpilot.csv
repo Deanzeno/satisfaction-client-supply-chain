@@ -1,0 +1,35 @@
+company_name,company_slug,categorie,trustscore,nb_avis_total,pct_excellent,pct_great,pct_average,pct_poor,pct_bad,date_scraping
+Boursorama Banque,boursorama.com,atm,4.2,48006,67,7,2,8,16,2025-04-28 08:12:34
+BNP Paribas,bnpparibas.fr,atm,2.1,9402,16,11,10,19,44,2025-04-28 08:12:34
+Crédit Agricole,creditagricole.fr,atm,3.7,12572,53,12,9,10,16,2025-04-28 08:12:34
+Société Générale,societegenerale.fr,atm,2.8,5747,33,9,9,18,31,2025-04-28 08:12:34
+LCL,lcl.fr,atm,2.5,4810,25,16,13,15,31,2025-04-28 08:12:34
+Caisse d'Épargne,caisse-epargne.fr,atm,2.4,6262,30,15,9,15,31,2025-04-28 08:12:34
+La Banque Postale,labanquepostale.fr,atm,3.1,8806,31,14,7,14,34,2025-04-28 08:12:34
+Hello bank!,hellobank.fr,atm,4.0,18250,55,14,9,9,13,2025-04-28 08:12:34
+Fortuneo,fortuneo.fr,atm,4.0,22199,63,7,5,4,21,2025-04-28 08:12:34
+N26,n26.com,atm,3.1,31295,35,13,6,10,36,2025-04-28 08:12:34
+Revolut,revolut.com,atm,3.9,94443,57,7,7,10,19,2025-04-28 08:12:34
+Monabanq,monabanq.com,atm,4.2,15757,56,12,10,14,8,2025-04-28 08:12:34
+ShowroomPrivé,showroomprive.com,online_shopping,2.3,10914,17,13,13,21,36,2025-04-28 08:12:34
+Cdiscount,cdiscount.com,online_shopping,2.9,43177,31,10,8,17,34,2025-04-28 08:12:34
+La Redoute,laredoute.fr,online_shopping,3.3,29827,45,4,7,11,33,2025-04-28 08:12:34
+Zalando,zalando.fr,online_shopping,3.8,52262,52,7,6,18,17,2025-04-28 08:12:34
+ASOS,asos.com,online_shopping,3.6,67375,43,17,11,12,17,2025-04-28 08:12:34
+Amazon,amazon.fr,online_shopping,2.6,198528,34,6,7,13,40,2025-04-28 08:12:34
+Vinted,vinted.fr,online_shopping,2.9,84111,32,16,10,16,26,2025-04-28 08:12:34
+Leboncoin,leboncoin.fr,online_shopping,2.0,23933,10,14,11,20,45,2025-04-28 08:12:34
+Shein,shein.com,online_shopping,2.1,112030,20,10,8,21,41,2025-04-28 08:12:34
+Fnac,fnac.com,online_shopping,3.1,38987,32,13,7,14,34,2025-04-28 08:12:34
+Darty,darty.com,online_shopping,3.4,22961,51,11,5,11,22,2025-04-28 08:12:34
+Boulanger,boulanger.com,online_shopping,3.8,17586,46,13,6,16,19,2025-04-28 08:12:34
+Colissimo,colissimo.fr,logistics,1.9,34170,24,9,8,18,41,2025-04-28 08:12:34
+Chronopost,chronopost.fr,logistics,2.3,18983,25,11,9,18,37,2025-04-28 08:12:34
+DHL,dhl.fr,logistics,3.1,42200,44,10,8,16,22,2025-04-28 08:12:34
+UPS,ups.com,logistics,3.0,29944,38,12,8,14,28,2025-04-28 08:12:34
+FedEx,fedex.com,logistics,2.8,21494,31,9,8,18,34,2025-04-28 08:12:34
+Mondial Relay,mondialrelay.fr,logistics,2.2,67305,22,12,9,7,50,2025-04-28 08:12:34
+DPD,dpd.fr,logistics,2.5,15753,33,5,5,13,44,2025-04-28 08:12:34
+GLS,gls-group.com,logistics,2.9,9219,27,12,10,17,34,2025-04-28 08:12:34
+TNT,tnt.fr,logistics,2.7,11309,34,6,6,16,38,2025-04-28 08:12:34
+Colis Privé,colisprive.fr,logistics,1.9,28097,17,14,11,16,42,2025-04-28 08:12:34
