@@ -3,13 +3,15 @@
     "properties": {
       "review_id":          { "type": "keyword" },
       "company_name":       { "type": "keyword" },
+      "company_slug":       { "type": "keyword" },
       "author":             { "type": "keyword" },
       "date_avis":          { "type": "date" },
       "nb_etoiles":         { "type": "integer" },
       "titre":              { "type": "text" },
       "contenu":            { "type": "text" },
       "entreprise_repond":  { "type": "boolean" },
-      "reponse_entreprise": { "type": "text" }
+      "reponse_entreprise": { "type": "text" },
+      "date_scraping":      { "type": "date" }
     }
   }
 }
