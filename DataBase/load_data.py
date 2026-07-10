@@ -2,7 +2,7 @@
 Script de chargement des données CSV dans la base PostgreSQL
 Etape 2 - Organisation des données
 """
-
+from pathlib import Path
 import csv
 import psycopg2
 
@@ -15,8 +15,15 @@ conn = psycopg2.connect(
 )
 cur = conn.cursor()
 
+
+
+# Racine du projet
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Chemin vers le fichier CSV
+csv_file = BASE_DIR / "Data" / "companies_trustpilot.csv"
 # On lit le fichier CSV récolté à l'étape 1
-with open("companies_trustpilot.csv", newline="", encoding="utf-8") as f:
+with csv_file.open(newline="", encoding="utf-8") as f:
     reader = csv.DictReader(f)
     lignes = list(reader)
 
