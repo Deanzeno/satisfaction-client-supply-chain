@@ -1,0 +1,612 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Démo API Sentiment</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* ── Design tokens ──────────────────────────────────────────── */
+/* Layout: single column centered, card-based sections, 700px max */
+:root {
+  --bg:       #F0F2F7;
+  --surface:  #FFFFFF;
+  --surface2: #F7F9FC;
+  --border:   #DDE2ED;
+  --fg:       #1A1D2E;
+  --fg2:      #5A607A;
+  --accent:   #2B59FF;
+  --accent-bg:#EBF0FF;
+  --pos:      #16A34A;
+  --pos-bg:   #DCFCE7;
+  --neg:      #DC2626;
+  --neg-bg:   #FEE2E2;
+  --neu:      #B45309;
+  --neu-bg:   #FEF3C7;
+  --radius:   10px;
+  --shadow:   0 1px 4px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:       #0D0F1A;
+    --surface:  #171928;
+    --surface2: #1E2136;
+    --border:   #2D3250;
+    --fg:       #E8ECFF;
+    --fg2:      #8B92B4;
+    --accent:   #5B80FF;
+    --accent-bg:#1A2250;
+    --pos:      #4ADE80;
+    --pos-bg:   #052e16;
+    --neg:      #F87171;
+    --neg-bg:   #2d0a0a;
+    --neu:      #FBBF24;
+    --neu-bg:   #2d1a00;
+    --shadow:   0 1px 4px rgba(0,0,0,.4), 0 4px 20px rgba(0,0,0,.3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:       #0D0F1A;
+  --surface:  #171928;
+  --surface2: #1E2136;
+  --border:   #2D3250;
+  --fg:       #E8ECFF;
+  --fg2:      #8B92B4;
+  --accent:   #5B80FF;
+  --accent-bg:#1A2250;
+  --pos:      #4ADE80;
+  --pos-bg:   #052e16;
+  --neg:      #F87171;
+  --neg-bg:   #2d0a0a;
+  --neu:      #FBBF24;
+  --neu-bg:   #2d1a00;
+  --shadow:   0 1px 4px rgba(0,0,0,.4), 0 4px 20px rgba(0,0,0,.3);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  padding: 24px 16px 48px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { max-width: 700px; margin: 0 auto; }
+
+/* ── Header ── */
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.logo {
+  width: 40px; height: 40px;
+  background: var(--accent);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.logo svg { width: 22px; height: 22px; }
+.header-text h1 {
+  font-size: 18px; font-weight: 700;
+  margin: 0 0 2px;
+  letter-spacing: -.3px;
+}
+.header-text p {
+  font-size: 12px; color: var(--fg2);
+  margin: 0;
+}
+.status-dot {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--fg2);
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #94a3b8;
+  transition: background .3s;
+}
+.dot.ok  { background: var(--pos); }
+.dot.err { background: var(--neg); }
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.card-title {
+  font-size: 13px; font-weight: 600; color: var(--fg2);
+  text-transform: uppercase; letter-spacing: .6px;
+  margin: 0 0 14px;
+}
+
+/* ── Predict section ── */
+textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  color: var(--fg);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+  transition: border-color .2s;
+  outline: none;
+}
+textarea:focus { border-color: var(--accent); }
+textarea::placeholder { color: var(--fg2); }
+
+.quick-pills {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin: 10px 0;
+}
+.pill {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 11px; color: var(--fg2);
+  cursor: pointer;
+  background: var(--surface2);
+  transition: border-color .15s, color .15s;
+  line-height: 1.5;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+.predict-btn {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px;
+  background: var(--accent);
+  color: #fff;
+  border: none; border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: opacity .15s, transform .1s;
+}
+.predict-btn:hover  { opacity: .9; }
+.predict-btn:active { transform: scale(.98); }
+.predict-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* ── Result ── */
+.result-box {
+  margin-top: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  transition: border-color .3s;
+}
+.result-box.positif { border-color: var(--pos); }
+.result-box.negatif { border-color: var(--neg); }
+.result-box.neutre  { border-color: var(--neu); }
+
+.result-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+}
+.result-header.positif { background: var(--pos-bg); color: var(--pos); }
+.result-header.negatif { background: var(--neg-bg); color: var(--neg); }
+.result-header.neutre  { background: var(--neu-bg); color: var(--neu); }
+
+.result-label { font-weight: 700; font-size: 15px; }
+.result-conf  { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+
+.result-text {
+  padding: 10px 14px;
+  font-size: 13px; color: var(--fg2);
+  border-top: 1px solid var(--border);
+  font-style: italic;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.confidence-bar {
+  height: 4px; background: var(--border);
+  position: relative;
+}
+.confidence-bar-fill {
+  height: 100%;
+  transition: width .5s ease;
+}
+.positif .confidence-bar-fill { background: var(--pos); }
+.negatif .confidence-bar-fill { background: var(--neg); }
+.neutre  .confidence-bar-fill { background: var(--neu); }
+
+/* ── Tabs ── */
+.tabs { display: flex; gap: 4px; margin-bottom: 14px; }
+.tab {
+  flex: 1; padding: 7px; text-align: center;
+  font-size: 12px; font-weight: 600;
+  border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface2); color: var(--fg2);
+  transition: all .15s;
+}
+.tab.active {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── Stats grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.stat-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 12px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 22px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 11px; color: var(--fg2);
+  line-height: 1.3;
+}
+
+/* ── Companies table ── */
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px;
+}
+th {
+  text-align: left; padding: 7px 10px;
+  background: var(--surface2);
+  color: var(--fg2); font-weight: 600;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .4px;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0;
+}
+td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface2); }
+
+.score-badge {
+  display: inline-block;
+  padding: 2px 7px; border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+}
+.score-good  { background: var(--pos-bg); color: var(--pos); }
+.score-med   { background: var(--neu-bg); color: var(--neu); }
+.score-bad   { background: var(--neg-bg); color: var(--neg); }
+
+.load-btn {
+  width: 100%; padding: 9px;
+  border: 1.5px dashed var(--border);
+  border-radius: 8px;
+  background: none; color: var(--fg2);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.load-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Loader spinner ── */
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Error toast ── */
+.error-msg {
+  padding: 10px 14px;
+  background: var(--neg-bg);
+  color: var(--neg);
+  border-radius: 8px;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* ── Footer note ── */
+.footnote {
+  text-align: center;
+  font-size: 11px; color: var(--fg2);
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  header { flex-wrap: wrap; }
+  .status-dot { margin-left: 0; }
+}
+</style>
+
+<div class="page">
+
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </div>
+    <div class="header-text">
+      <h1>Démo API Sentiment</h1>
+      <p>Satisfaction Client · Supply Chain · Trustpilot</p>
+    </div>
+    <div class="status-dot">
+      <span class="dot" id="dot"></span>
+      <span id="status-label">Vérification…</span>
+    </div>
+  </header>
+
+  <!-- PREDICT CARD -->
+  <div class="card">
+    <p class="card-title">Analyser un avis client</p>
+
+    <textarea id="inputText"
+      placeholder="Écrivez un avis client ici… ex: Livraison rapide, produit conforme, très satisfait !"
+    ></textarea>
+
+    <div class="quick-pills">
+      <span class="pill" onclick="setPill(this)">😊 Livraison rapide, très satisfait !</span>
+      <span class="pill" onclick="setPill(this)">😡 Colis jamais reçu, service inexistant.</span>
+      <span class="pill" onclick="setPill(this)">😐 Commande correcte, rien d'exceptionnel.</span>
+      <span class="pill" onclick="setPill(this)">😍 Impeccable, je recommande vivement !</span>
+      <span class="pill" onclick="setPill(this)">😤 Délai dépassé, aucune réponse du service client, très déçu.</span>
+    </div>
+
+    <button class="predict-btn" id="predictBtn" onclick="predict()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+      Analyser le sentiment
+    </button>
+
+    <div id="errorPredict" hidden class="error-msg"></div>
+    <div id="resultBox" hidden class="result-box">
+      <div id="resultHeader" class="result-header">
+        <span id="resultEmoji" style="font-size:20px"></span>
+        <span id="resultLabel" class="result-label"></span>
+        <span id="resultConf"  class="result-conf"></span>
+      </div>
+      <div class="confidence-bar">
+        <div id="confBar" class="confidence-bar-fill" style="width:0%"></div>
+      </div>
+      <div id="resultText" class="result-text"></div>
+    </div>
+  </div>
+
+  <!-- STATS + COMPANIES TABS -->
+  <div class="card">
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('stats',this)">📊 Statistiques</div>
+      <div class="tab"       onclick="switchTab('companies',this)">🏢 Entreprises</div>
+    </div>
+
+    <!-- STATS panel -->
+    <div class="tab-panel active" id="panel-stats">
+      <div id="statsContent">
+        <button class="load-btn" onclick="loadStats()">⬇ Charger les statistiques depuis l'API</button>
+      </div>
+    </div>
+
+    <!-- COMPANIES panel -->
+    <div class="tab-panel" id="panel-companies">
+      <div id="companiesContent">
+        <button class="load-btn" onclick="loadCompanies()">⬇ Charger les entreprises depuis l'API</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="footnote">🔗 API locale · <code style="font-family:'JetBrains Mono',monospace">http://localhost:8000</code> · Modèle : Régression Logistique TF-IDF · Etape 4</p>
+
+</div>
+
+<script>
+const API = 'http://localhost:8000';
+
+/* ── Health check ── */
+async function checkHealth() {
+  try {
+    const r = await fetch(API + '/');
+    const d = await r.json();
+    document.getElementById('dot').className = 'dot ok';
+    document.getElementById('status-label').textContent = 'API en ligne';
+  } catch {
+    document.getElementById('dot').className = 'dot err';
+    document.getElementById('status-label').textContent = 'API hors ligne';
+  }
+}
+checkHealth();
+
+/* ── Quick pills ── */
+function setPill(el) {
+  // Strip the emoji prefix
+  const text = el.textContent.replace(/^[\u{1F600}-\u{1F9FF}] /u, '').trim();
+  document.getElementById('inputText').value = text;
+}
+
+/* ── Predict ── */
+async function predict() {
+  const text = document.getElementById('inputText').value.trim();
+  if (!text) { document.getElementById('inputText').focus(); return; }
+
+  const btn = document.getElementById('predictBtn');
+  const errDiv = document.getElementById('errorPredict');
+  errDiv.hidden = true;
+  document.getElementById('resultBox').hidden = true;
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Analyse en cours…';
+
+  try {
+    const r = await fetch(API + '/predict', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ texte: text })
+    });
+    if (!r.ok) throw new Error('Erreur HTTP ' + r.status);
+    const d = await r.json();
+    showResult(d);
+  } catch(e) {
+    errDiv.textContent = '⚠ Impossible de contacter l\'API. Vérifiez que uvicorn tourne (python -m uvicorn main:app --reload).';
+    errDiv.hidden = false;
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Analyser le sentiment';
+  }
+}
+
+function showResult(d) {
+  const box    = document.getElementById('resultBox');
+  const header = document.getElementById('resultHeader');
+  const bar    = document.getElementById('confBar');
+  const sentiment = d.sentiment; // positif | negatif | neutre
+  const pct = Math.round(d.confiance * 100);
+
+  const meta = {
+    positif: { emoji: '✅', label: 'POSITIF',  cls: 'positif' },
+    negatif: { emoji: '❌', label: 'NÉGATIF',  cls: 'negatif' },
+    neutre:  { emoji: '➖', label: 'NEUTRE',   cls: 'neutre'  },
+  };
+  const m = meta[sentiment] || meta.neutre;
+
+  box.className    = 'result-box ' + m.cls;
+  header.className = 'result-header ' + m.cls;
+  document.getElementById('resultEmoji').textContent = m.emoji;
+  document.getElementById('resultLabel').textContent = m.label;
+  document.getElementById('resultConf').textContent  = pct + '% confiance';
+  document.getElementById('resultText').textContent  = '"' + d.texte + '"';
+
+  // confidence bar
+  bar.parentElement.className = 'confidence-bar ' + m.cls; // for fill color
+  setTimeout(() => { bar.style.width = pct + '%'; }, 30);
+  bar.className = 'confidence-bar-fill';
+
+  box.hidden = false;
+}
+
+/* ── Tab switch ── */
+function switchTab(name, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+
+/* ── Stats ── */
+async function loadStats() {
+  const container = document.getElementById('statsContent');
+  container.innerHTML = '<p style="color:var(--fg2);font-size:13px">Chargement…</p>';
+  try {
+    const r = await fetch(API + '/stats');
+    if (!r.ok) throw new Error();
+    const json = await r.json();
+    // Réponse : {"stats_par_categorie": [{categorie, nb_entreprises, trustscore_moyen, total_avis}]}
+    renderStats(json.stats_par_categorie || json);
+  } catch {
+    container.innerHTML = '<div class="error-msg">⚠ Impossible de charger /stats — vérifiez l\'API et PostgreSQL.</div>';
+  }
+}
+
+function renderStats(rows) {
+  const total = rows.reduce((s, r) => s + r.nb_entreprises, 0);
+  const avgAll = rows.reduce((s, r) => s + (r.trustscore_moyen || r.avg_trustscore || 0) * r.nb_entreprises, 0) / (total || 1);
+  const best  = rows[0] || {};
+
+  let html = `<div class="stats-grid" style="margin-bottom:16px">
+    <div class="stat-card">
+      <div class="stat-value">${total.toLocaleString('fr')}</div>
+      <div class="stat-label">Entreprises<br>analysées</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">${avgAll.toFixed(2)}</div>
+      <div class="stat-label">Trustscore<br>moyen global</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">${rows.length}</div>
+      <div class="stat-label">Catégories<br>Trustpilot</div>
+    </div>
+  </div>`;
+
+  html += '<div class="table-wrap"><table><thead><tr><th>Catégorie</th><th>Entreprises</th><th>Trustscore moyen</th></tr></thead><tbody>';
+  const sorted = [...rows].sort((a,b) => (b.trustscore_moyen||b.avg_trustscore||0) - (a.trustscore_moyen||a.avg_trustscore||0));
+  for (const row of sorted) {
+    const s = parseFloat(row.trustscore_moyen || row.avg_trustscore || 0).toFixed(2);
+    const cls = s >= 4 ? 'score-good' : s >= 2.5 ? 'score-med' : 'score-bad';
+    html += `<tr>
+      <td>${row.categorie}</td>
+      <td style="font-variant-numeric:tabular-nums">${row.nb_entreprises.toLocaleString('fr')}</td>
+      <td><span class="score-badge ${cls}">${s} / 5</span></td>
+    </tr>`;
+  }
+  html += '</tbody></table></div>';
+  document.getElementById('statsContent').innerHTML = html;
+}
+
+/* ── Companies ── */
+let companiesPage = 1;
+let companiesAll  = [];
+
+async function loadCompanies() {
+  const container = document.getElementById('companiesContent');
+  container.innerHTML = '<p style="color:var(--fg2);font-size:13px">Chargement…</p>';
+  try {
+    const r = await fetch(API + '/companies?limit=20');
+    if (!r.ok) throw new Error();
+    const json = await r.json();
+    // Réponse : {"total": int, "filtres": {...}, "companies": [...]}
+    companiesAll = json.companies || json;
+    renderCompanies();
+  } catch {
+    container.innerHTML = '<div class="error-msg">⚠ Impossible de charger /companies — vérifiez l\'API et PostgreSQL.</div>';
+  }
+}
+
+function renderCompanies() {
+  if (!companiesAll.length) {
+    document.getElementById('companiesContent').innerHTML = '<p style="color:var(--fg2);font-size:13px">Aucune entreprise.</p>';
+    return;
+  }
+  let html = '<div class="table-wrap"><table><thead><tr><th>Entreprise</th><th>Catégorie</th><th>Trustscore</th><th>Avis</th></tr></thead><tbody>';
+  for (const c of companiesAll) {
+    const s = parseFloat(c.trustscore || 0).toFixed(1);
+    const cls = s >= 4 ? 'score-good' : s >= 2.5 ? 'score-med' : 'score-bad';
+    const nb = (c.nb_avis_total || 0).toLocaleString('fr');
+    html += `<tr>
+      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${c.entreprise||c.nom}">${c.entreprise||c.nom}</td>
+      <td style="color:var(--fg2)">${c.categorie || '—'}</td>
+      <td><span class="score-badge ${cls}">${s}</span></td>
+      <td style="font-variant-numeric:tabular-nums;color:var(--fg2)">${nb}</td>
+    </tr>`;
+  }
+  html += '</tbody></table></div>';
+  document.getElementById('companiesContent').innerHTML = html;
+}
+
+/* ── Enter key in textarea ── */
+document.getElementById('inputText').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) predict();
+});
+</script>
+
+</body></html>
