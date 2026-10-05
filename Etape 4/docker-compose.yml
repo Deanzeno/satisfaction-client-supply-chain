@@ -1,21 +1,19 @@
-services:
+﻿services:
 
-  # Base de données relationnelle PostgreSQL
   postgres:
     image: postgres:15
     container_name: postgres_satisfaction
     environment:
-      POSTGRES_DB: satisfaction_client
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # Moteur de recherche ElasticSearch
   elasticsearch:
-    image: elasticsearch:8.12.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
     container_name: elasticsearch_satisfaction
     environment:
       - discovery.type=single-node
@@ -26,9 +24,8 @@ services:
     volumes:
       - es_data:/usr/share/elasticsearch/data
 
-  # Dashboard Kibana
   kibana:
-    image: kibana:8.12.0
+    image: docker.elastic.co/kibana/kibana:8.12.0
     container_name: kibana_satisfaction
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
@@ -37,21 +34,18 @@ services:
     depends_on:
       - elasticsearch
 
-  # Notre API FastAPI
   api:
-    build: ../Etape 4  # on build depuis le dossier Etape 4
+    build: .
     container_name: api_satisfaction
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_HOST=postgres
-      - POSTGRES_DB=satisfaction_client
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     depends_on:
       - postgres
-    volumes:
-      - ../Etape 4:/app  # recharge le code automatiquement
 
 volumes:
   postgres_data:
