@@ -1,12 +1,19 @@
 """
 Script pour créer l'index ElasticSearch "reviews"
 et y insérer les avis récoltés à l'étape 1 (showroom_reviews.json)
+Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
 """
 
 import json
+import os
+from dotenv import load_dotenv
 from elasticsearch import Elasticsearch
 
-es = Elasticsearch("http://localhost:9200")
+# Chargement des variables d'environnement depuis .env
+load_dotenv()
+
+ES_HOST = os.getenv("ES_HOST", "http://localhost:9200")
+es = Elasticsearch(ES_HOST)
 
 info = es.info()
 print(f"ElasticSearch connecté : version {info['version']['number']}")

@@ -1,17 +1,23 @@
 """
 Script de chargement des données CSV dans la base PostgreSQL
 Etape 2 - Organisation des données
+Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
 """
 
 import csv
+import os
 import psycopg2
+from dotenv import load_dotenv
 
-# Connexion à la base de données (à adapter avec vos identifiants)
+# Chargement des variables d'environnement depuis .env
+load_dotenv()
+
+# Connexion à la base de données via variables d'environnement
 conn = psycopg2.connect(
-    host="localhost",
-    database="satisfaction_client",
-    user="postgres",
-    password="postgres"
+    host=os.getenv("POSTGRES_HOST", "localhost"),
+    database=os.getenv("POSTGRES_DB", "satisfaction_client"),
+    user=os.getenv("POSTGRES_USER", "postgres"),
+    password=os.getenv("POSTGRES_PASSWORD")
 )
 cur = conn.cursor()
 
