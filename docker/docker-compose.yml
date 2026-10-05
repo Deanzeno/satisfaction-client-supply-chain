@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+
+  # Base de données relationnelle PostgreSQL
+  postgres:
+    image: postgres:15
+    container_name: postgres_satisfaction
+    environment:
+      POSTGRES_DB: satisfaction_client
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Moteur de recherche ElasticSearch
+  elasticsearch:
+    image: elasticsearch:8.12.0
+    container_name: elasticsearch_satisfaction
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+  # Dashboard Kibana (interface visuelle pour ElasticSearch)
+  kibana:
+    image: kibana:8.12.0
+    container_name: kibana_satisfaction
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+volumes:
+  postgres_data:
+  es_data:

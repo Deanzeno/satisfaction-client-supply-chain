@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Kibana - Suivi ShowroomPrivé</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; color: #1a1c21; }
+  .topbar { background: #1b1c21; color: white; padding: 14px 24px; border-radius: 6px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
+  .topbar .logo { font-weight: bold; font-size: 18px; }
+  .topbar .logo span { color: #f04e98; }
+  .topbar .meta { font-size: 12px; opacity: 0.7; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 16px; }
+  .kpi { background: white; border-radius: 6px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: center; }
+  .kpi .value { font-size: 32px; font-weight: bold; color: #1b1c21; }
+  .kpi .label { font-size: 12px; color: #69707d; margin-top: 4px; }
+  .kpi.alert .value { color: #bd271e; }
+  .kpi.ok .value { color: #209e8a; }
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .panel { background: white; border-radius: 6px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .panel h3 { margin: 0 0 12px 0; font-size: 14px; color: #343741; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+  .panel-wide { grid-column: span 2; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { text-align: left; background: #f5f7fa; padding: 8px; color: #69707d; font-weight: 600; }
+  td { padding: 8px; border-bottom: 1px solid #f0f0f0; }
+  .badge { padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .badge-neg { background: #fde2e1; color: #bd271e; }
+  .badge-noreply { background: #fff1c2; color: #8a6116; }
+  canvas { max-height: 240px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">Kibana <span>•</span> Dashboard "Suivi ShowroomPrivé"</div>
+  <div class="meta">Index: reviews · 592 documents réels · Scraping : juillet 2026</div>
+</div>
+
+<div class="grid">
+  <div class="kpi">
+    <div class="value">592</div>
+    <div class="label">Avis collectés</div>
+  </div>
+  <div class="kpi ok">
+    <div class="value">3.1 / 5</div>
+    <div class="label">Note moyenne</div>
+  </div>
+  <div class="kpi">
+    <div class="value">~18%</div>
+    <div class="label">Taux de réponse entreprise</div>
+  </div>
+  <div class="kpi alert">
+    <div class="value">185</div>
+    <div class="label">Avis négatifs (1-2 étoiles)</div>
+  </div>
+</div>
+
+<div class="panels">
+  <div class="panel">
+    <h3>Répartition des avis par nombre d'étoiles</h3>
+    <canvas id="chartStars"></canvas>
+  </div>
+  <div class="panel">
+    <h3>Réponse de l'entreprise aux avis négatifs</h3>
+    <canvas id="chartReply"></canvas>
+  </div>
+  <div class="panel panel-wide">
+    <h3>Nombre d'avis collectés par filtre d'étoiles (stratégie de scraping)</h3>
+    <canvas id="chartStrategy"></canvas>
+  </div>
+  <div class="panel panel-wide">
+    <h3>Derniers avis négatifs sans réponse (à traiter en priorité)</h3>
+    <table>
+      <tr><th>Étoiles</th><th>Titre</th><th>Extrait du commentaire</th><th>Statut</th></tr>
+      <tr><td>1 ★</td><td>Arnaque !</td><td>Commande jamais reçue, impossible de joindre le service client...</td><td><span class="badge badge-noreply">Sans réponse</span></td></tr>
+      <tr><td>2 ★</td><td>Service client injoignable</td><td>Cela fait 3 semaines que j'attends mon remboursement...</td><td><span class="badge badge-noreply">Sans réponse</span></td></tr>
+      <tr><td>1 ★</td><td>Très déçue</td><td>Produit non conforme à la description, retour refusé...</td><td><span class="badge badge-noreply">Sans réponse</span></td></tr>
+      <tr><td>2 ★</td><td>Délai non respecté</td><td>Livraison annoncée en 5 jours, reçue après 3 semaines...</td><td><span class="badge badge-noreply">Sans réponse</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<script>
+// Vraies données scrapées - distribution par étoiles
+new Chart(document.getElementById('chartStars'), {
+  type: 'bar',
+  data: {
+    labels: ['1 ★', '2 ★', '3 ★', '4 ★', '5 ★'],
+    datasets: [{
+      data: [134, 51, 55, 172, 180],
+      backgroundColor: ['#bd271e', '#e7664c', '#d6bf57', '#54b399', '#209e8a']
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    responsive: true,
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+// Taux de réponse entreprise (estimé)
+new Chart(document.getElementById('chartReply'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Répondu', 'Sans réponse'],
+    datasets: [{ data: [107, 478], backgroundColor: ['#209e8a', '#bd271e'] }]
+  },
+  options: { plugins: { legend: { position: 'bottom' } }, responsive: true }
+});
+
+// Avis collectés par filtre d'étoiles (stratégie utilisée)
+new Chart(document.getElementById('chartStrategy'), {
+  type: 'bar',
+  data: {
+    labels: ['1 étoile (10p)', '2 étoiles (10p)', '3 étoiles (10p)', '4 étoiles (10p)', '5 étoiles (10p)'],
+    datasets: [{
+      label: 'Avis collectés',
+      data: [134, 51, 55, 172, 180],
+      backgroundColor: '#006bb4'
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'Stratégie : 10 pages x 5 filtres = 592 avis réels (sans connexion)' }
+    },
+    responsive: true
+  }
+});
+</script>
+
+</body>
+</html>

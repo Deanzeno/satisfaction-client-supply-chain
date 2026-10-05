@@ -1,0 +1,69 @@
+// =====================================================
+// Quelques requêtes ElasticSearch pour interroger les avis
+// Etape 2 - Organisation des données
+// =====================================================
+
+
+// 1) Voir tous les avis d'une entreprise (suivi de l'entreprise)
+GET reviews/_search
+{
+  "query": {
+    "match": {
+      "company_name": "ShowroomPrivé"
+    }
+  }
+}
+
+
+// 2) Voir uniquement les avis négatifs (1 ou 2 étoiles)
+GET reviews/_search
+{
+  "query": {
+    "range": {
+      "nb_etoiles": {
+        "lte": 2
+      }
+    }
+  }
+}
+
+
+// 3) Voir les avis négatifs auxquels l'entreprise n'a PAS répondu
+// (utile pour aider à la réponse aux clients insatisfaits)
+GET reviews/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "range": { "nb_etoiles": { "lte": 2 } } },
+        { "term": { "entreprise_repond": false } }
+      ]
+    }
+  }
+}
+
+
+// 4) Rechercher un mot-clé dans le contenu des avis (ex: "retard")
+GET reviews/_search
+{
+  "query": {
+    "match": {
+      "contenu": "retard"
+    }
+  }
+}
+
+
+// 5) Compter le nombre d'avis par note (1 à 5 étoiles)
+// -> sert de base pour le dashboard Kibana
+GET reviews/_search
+{
+  "size": 0,
+  "aggs": {
+    "par_etoile": {
+      "terms": {
+        "field": "nb_etoiles"
+      }
+    }
+  }
+}
