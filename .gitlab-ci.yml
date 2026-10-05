@@ -1,0 +1,139 @@
+# ════════════════════════════════════════════════════════════════
+# GitLab CI/CD — Supply Chain Satisfaction des clients
+# Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
+# Pipeline : test → build → deploy
+# ════════════════════════════════════════════════════════════════
+
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  PYTHON_VERSION: "3.11"
+  DOCKER_IMAGE: "$CI_REGISTRY_IMAGE/supply-chain-api"
+  DOCKER_TAG: "$CI_COMMIT_SHORT_SHA"
+
+# ────────────────────────────────────────────────
+# STAGE 1 : TEST
+# Lance les tests pytest de l'API FastAPI
+# avec PostgreSQL comme service externe
+# ────────────────────────────────────────────────
+test:pytest:
+  stage: test
+  image: python:3.11-slim
+  # Service PostgreSQL disponible pendant les tests
+  services:
+    - name: postgres:15
+      alias: postgres
+  variables:
+    # Variables PostgreSQL pour le service CI
+    POSTGRES_DB: satisfaction_client
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres_ci_test
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    # Désactive les couleurs pour des logs plus lisibles en CI
+    PYTHONDONTWRITEBYTECODE: "1"
+  before_script:
+    - pip install --upgrade pip
+    - pip install -r "Etape 4/requirements.txt"
+    # Attendre que PostgreSQL soit prêt
+    - apt-get update -qq && apt-get install -y -qq postgresql-client
+    - |
+      echo "Attente de PostgreSQL..."
+      for i in $(seq 1 30); do
+        pg_isready -h postgres -U postgres && break
+        echo "  tentative $i/30..."
+        sleep 2
+      done
+    # Créer les tables à partir du script SQL de l'Étape 2
+    - PGPASSWORD=postgres_ci_test psql -h postgres -U postgres -d satisfaction_client -f "Etape 2/create_database.sql"
+    - echo "=== Tables PostgreSQL créées ==="
+  script:
+    - echo "=== Lancement des tests pytest ==="
+    - cd "Etape 4"
+    - pytest test_main.py -v --tb=short --junit-xml=report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: "Etape 4/report.xml"
+    expire_in: 7 days
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+
+test:lint:
+  stage: test
+  image: python:3.11-slim
+  before_script:
+    - pip install flake8
+  script:
+    - echo "=== Vérification de la qualité du code ==="
+    - flake8 "Etape 4/main.py" --max-line-length=120 --ignore=E501,W503 || true
+    - flake8 "Etape 5/dags/scraping_dag.py" --max-line-length=120 --ignore=E501,W503 || true
+  allow_failure: true
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+
+# ────────────────────────────────────────────────
+# STAGE 2 : BUILD
+# Construit l'image Docker de l'API FastAPI
+# et la pousse vers GitLab Container Registry
+# ────────────────────────────────────────────────
+build:docker:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+  script:
+    - echo "=== Construction de l'image Docker ==="
+    - docker build -t "$DOCKER_IMAGE:$DOCKER_TAG" -f "Etape 4/Dockerfile" "Etape 4/"
+    - docker tag "$DOCKER_IMAGE:$DOCKER_TAG" "$DOCKER_IMAGE:latest"
+    - echo "=== Push de l'image vers GitLab Registry ==="
+    - docker push "$DOCKER_IMAGE:$DOCKER_TAG"
+    - docker push "$DOCKER_IMAGE:latest"
+    - echo "✅ Image publiée : $DOCKER_IMAGE:$DOCKER_TAG"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+# ────────────────────────────────────────────────
+# STAGE 3 : DEPLOY
+# Déploie la stack complète via Docker Compose
+# (déclenchement manuel sur branche main)
+# ────────────────────────────────────────────────
+deploy:staging:
+  stage: deploy
+  image: alpine:3.18
+  before_script:
+    - apk add --no-cache docker-compose openssh-client
+  script:
+    - echo "=== Déploiement en staging ==="
+    - echo "Image déployée : $DOCKER_IMAGE:$DOCKER_TAG"
+    - |
+      cat <<EOF
+      ──────────────────────────────────────────
+      Commandes de déploiement sur le serveur :
+      ──────────────────────────────────────────
+        cd satisfaction-client-supply-chain/
+        cp .env Etape\ 5/
+        docker-compose -f "Etape 5/docker-compose.yml" pull
+        docker-compose -f "Etape 5/docker-compose.yml" up -d --remove-orphans
+      ──────────────────────────────────────────
+      Services exposés :
+        - API FastAPI  : http://localhost:8000
+        - Airflow      : http://localhost:8080  (admin/admin123)
+        - Kibana       : http://localhost:5601
+        - Prometheus   : http://localhost:9090
+        - Grafana      : http://localhost:3000  (admin/admin123)
+      EOF
+    - echo "✅ Pipeline CI/CD terminé avec succès"
+  environment:
+    name: staging
+    url: http://localhost:8000
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  when: manual

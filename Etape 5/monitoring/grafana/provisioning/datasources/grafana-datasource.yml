@@ -1,0 +1,18 @@
+# ════════════════════════════════════════════════════════════════
+# Grafana — Provisioning automatique de la source de données
+# Fichier à placer dans : Etape 5/monitoring/grafana/provisioning/datasources/
+# Supply Chain — Satisfaction des clients
+# Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
+# ════════════════════════════════════════════════════════════════
+
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: true
+    jsonData:
+      timeInterval: "15s"

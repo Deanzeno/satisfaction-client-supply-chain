@@ -1,7 +1,25 @@
+# =====================================================
+# Requirements — Étape 4 (API FastAPI) + Étape 5 (Prometheus)
+# Supply Chain — Satisfaction des clients
+# Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
+# =====================================================
+
+# API FastAPI
 fastapi==0.111.0
 uvicorn==0.29.0
+pydantic==2.7.1
+
+# ML
 scikit-learn==1.4.2
 joblib==1.4.2
+
+# Base de données
 psycopg2-binary==2.9.9
 python-dotenv==1.0.1
-pydantic==2.7.1
+
+# Monitoring Prometheus (Étape 5)
+prometheus-fastapi-instrumentator==6.4.0
+
+# Tests
+pytest==8.1.1
+httpx==0.27.0

@@ -1,0 +1,218 @@
+# ════════════════════════════════════════════════════════════════
+# Docker Compose — Étape 5 : Automatisation & Monitoring
+# Supply Chain — Satisfaction des clients
+# Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
+#
+# Services :
+#   - PostgreSQL 15          (port 5432)
+#   - ElasticSearch 8        (port 9200)
+#   - Kibana 8               (port 5601)
+#   - FastAPI                (port 8000)
+#   - Airflow Webserver      (port 8080)
+#   - Airflow Scheduler
+#   - Prometheus             (port 9090)
+#   - Grafana                (port 3000)
+#
+# Prérequis — fichier .env à créer à la racine du projet :
+#   POSTGRES_DB=satisfaction_client
+#   POSTGRES_USER=postgres
+#   POSTGRES_PASSWORD=votre_mot_de_passe
+# ════════════════════════════════════════════════════════════════
+
+version: "3.8"
+
+networks:
+  supply_chain_network:
+    driver: bridge
+
+volumes:
+  pg_data:
+  es_data:
+  airflow_logs:
+  prometheus_data:
+  grafana_data:
+
+# ── Paramètres communs Airflow (ancre YAML) ─────────────────────
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.9.1-python3.11
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+    # Dépendances Python supplémentaires pour le DAG
+    _PIP_ADDITIONAL_REQUIREMENTS: "requests beautifulsoup4 scikit-learn joblib psycopg2-binary"
+    # Variables d'environnement transmises au DAG
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    POSTGRES_DB: ${POSTGRES_DB}
+    POSTGRES_USER: ${POSTGRES_USER}
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ES_HOST: "http://elasticsearch:9200"
+    MODEL_PATH: /opt/airflow/models/sentiment_model.pkl
+    VEC_PATH: /opt/airflow/models/vectorizer.pkl
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - airflow_logs:/opt/airflow/logs
+    # Modèles ML de l'Étape 3 (montés en lecture seule)
+    - "../Etape 3/sentiment_model.pkl:/opt/airflow/models/sentiment_model.pkl:ro"
+    - "../Etape 3/vectorizer.pkl:/opt/airflow/models/vectorizer.pkl:ro"
+  networks:
+    - supply_chain_network
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+
+  # ── PostgreSQL 15 ─────────────────────────────────────────────
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      # Script SQL de création des tables (Étape 2)
+      - "../Etape 2/create_database.sql:/docker-entrypoint-initdb.d/init.sql:ro"
+    ports:
+      - "5432:5432"
+    networks:
+      - supply_chain_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── ElasticSearch 8 ───────────────────────────────────────────
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - supply_chain_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health | grep -v '\"status\":\"red\"' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ── Kibana 8 ──────────────────────────────────────────────────
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.12.0
+    environment:
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    ports:
+      - "5601:5601"
+    networks:
+      - supply_chain_network
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
+  # ── FastAPI (Étape 4 + Prometheus) ────────────────────────────
+  api:
+    build:
+      context: "../Etape 4"
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "8000:8000"
+    networks:
+      - supply_chain_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ── Airflow — Init DB ─────────────────────────────────────────
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db init
+        airflow users create \
+          --username admin \
+          --firstname Admin \
+          --lastname User \
+          --role Admin \
+          --email admin@supply-chain.local \
+          --password admin123
+    restart: on-failure
+
+  # ── Airflow — Webserver ───────────────────────────────────────
+  # Interface web : http://localhost:8080
+  # Identifiants : admin / admin123
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ── Airflow — Scheduler ───────────────────────────────────────
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  # ── Prometheus ────────────────────────────────────────────────
+  # Collecte les métriques FastAPI exposées via /metrics
+  # Interface : http://localhost:9090
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=15d"
+      - "--web.enable-lifecycle"
+    ports:
+      - "9090:9090"
+    networks:
+      - supply_chain_network
+
+  # ── Grafana ───────────────────────────────────────────────────
+  # Dashboard de visualisation des métriques Prometheus
+  # Interface : http://localhost:3000
+  # Identifiants : admin / admin123
+  grafana:
+    image: grafana/grafana:10.3.1
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin123
+      GF_SERVER_ROOT_URL: "http://localhost:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+    ports:
+      - "3000:3000"
+    networks:
+      - supply_chain_network
+    depends_on:
+      - prometheus

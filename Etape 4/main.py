@@ -1,12 +1,22 @@
 """
-API FastAPI - Projet Supply Chain Satisfaction des clients
-Etape 4 - Mise en production
+API FastAPI — Projet Supply Chain Satisfaction des clients
+Étape 4 mise à jour pour Étape 5 — Ajout monitoring Prometheus
 
 Endpoints :
     GET  /            → vérifier que l'API tourne
     POST /predict     → prédire le sentiment d'un avis client
     GET  /companies   → récupérer les entreprises depuis PostgreSQL
     GET  /stats       → statistiques globales
+    GET  /metrics     → métriques Prometheus (auto-exposé)
+
+Schéma PostgreSQL (base : satisfaction_client) :
+    - categorie(id, nom)
+    - entreprise(id, categorie_id, nom, slug)
+    - statistiques_avis(id, entreprise_id, trustscore, nb_avis_total,
+                        pct_excellent, pct_great, pct_average, pct_poor,
+                        pct_bad, date_scraping)
+
+Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
 """
 
 import os
@@ -17,6 +27,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from prometheus_fastapi_instrumentator import Instrumentator
 
 # Chargement des variables d'environnement
 load_dotenv()
@@ -25,8 +36,11 @@ load_dotenv()
 app = FastAPI(
     title="API Satisfaction Client - Supply Chain",
     description="API pour analyser le sentiment des avis clients Trustpilot",
-    version="1.0.0"
+    version="2.0.0"
 )
+
+# Monitoring Prometheus — expose automatiquement GET /metrics
+Instrumentator().instrument(app).expose(app)
 
 # Autoriser les requêtes depuis le navigateur (CORS)
 app.add_middleware(
@@ -76,9 +90,9 @@ def root():
     return {
         "status": "ok",
         "message": "API Satisfaction Client opérationnelle",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "modele_charge": modele is not None,
-        "endpoints": ["/predict", "/companies", "/stats"]
+        "endpoints": ["/predict", "/companies", "/stats", "/metrics"]
     }
 
 
@@ -113,8 +127,8 @@ def predict_sentiment(request: PredictRequest):
     sentiment = modele.predict(texte_vectorise)[0]
 
     # Probabilité de la prédiction (confiance)
-    probas     = modele.predict_proba(texte_vectorise)[0]
-    confiance  = round(float(max(probas)), 2)
+    probas    = modele.predict_proba(texte_vectorise)[0]
+    confiance = round(float(max(probas)), 2)
 
     return PredictResponse(
         texte=request.texte,
@@ -205,10 +219,10 @@ def get_stats():
 
         cur.execute("""
             SELECT
-                c.nom                            AS categorie,
-                COUNT(e.id)                      AS nb_entreprises,
+                c.nom                                AS categorie,
+                COUNT(e.id)                          AS nb_entreprises,
                 ROUND(AVG(s.trustscore)::numeric, 2) AS trustscore_moyen,
-                SUM(s.nb_avis_total)             AS total_avis
+                SUM(s.nb_avis_total)                 AS total_avis
             FROM categorie c
             JOIN entreprise e        ON e.categorie_id   = c.id
             JOIN statistiques_avis s ON s.entreprise_id  = e.id
