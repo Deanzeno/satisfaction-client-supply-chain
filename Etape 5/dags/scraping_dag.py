@@ -191,6 +191,31 @@ def scraper_trustpilot(**context):
                 continue
 
     print(f"\n[scraper_trustpilot] ✅ {len(all_companies)} entreprises récupérées au total")
+
+    if not all_companies:
+        import csv as _csv
+        _p = "/opt/airflow/dags/companies_trustpilot.csv"
+        if os.path.exists(_p):
+            print("[scraper_trustpilot] Scraping bloque (403) - lecture CSV : " + _p)
+            with open(_p, newline="", encoding="utf-8") as _f:
+                for _r in _csv.DictReader(_f):
+                    all_companies.append({
+                        "company_name":  _r["company_name"].strip(),
+                        "company_slug":  _r["company_slug"].strip(),
+                        "categorie":     _r["categorie"].strip(),
+                        "trustscore":    float(_r["trustscore"]),
+                        "nb_avis_total": int(_r["nb_avis_total"]),
+                        "pct_excellent": float(_r["pct_excellent"]),
+                        "pct_great":     float(_r["pct_great"]),
+                        "pct_average":   float(_r["pct_average"]),
+                        "pct_poor":      float(_r["pct_poor"]),
+                        "pct_bad":       float(_r["pct_bad"]),
+                        "date_scraping": _r["date_scraping"].strip(),
+                    })
+            print("[scraper_trustpilot] " + str(len(all_companies)) + " entreprises chargees depuis le CSV")
+        else:
+            print("[scraper_trustpilot] CSV introuvable : " + _p)
+
     context["ti"].xcom_push(key="companies", value=all_companies)
     return len(all_companies)
 
