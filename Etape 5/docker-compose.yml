@@ -39,7 +39,10 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
     AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
+    # Clé partagée par le webserver et le scheduler : sans elle, chaque conteneur
+    # génère sa propre clé et l'interface ne peut pas lire les logs en direct (403)
+    AIRFLOW__WEBSERVER__SECRET_KEY: "${AIRFLOW_SECRET_KEY:-supply-chain-dev-secret-key}"
     # Dépendances Python supplémentaires pour le DAG
     _PIP_ADDITIONAL_REQUIREMENTS: "requests beautifulsoup4 scikit-learn joblib psycopg2-binary"
     # Variables d'environnement transmises au DAG
