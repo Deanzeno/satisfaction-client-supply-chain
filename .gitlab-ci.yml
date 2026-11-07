@@ -49,7 +49,9 @@ test:pytest:
       done
     # Créer les tables à partir du script SQL de l'Étape 2
     - PGPASSWORD=postgres_ci_test psql -h postgres -U postgres -d satisfaction_client -f "Etape 2/create_database.sql"
-    - echo "=== Tables PostgreSQL créées ==="
+    # Charger un petit jeu de données de test (3 catégories, 4 entreprises)
+    - PGPASSWORD=postgres_ci_test psql -h postgres -U postgres -d satisfaction_client -f "Etape 4/ci_seed_data.sql"
+    - echo "=== Tables PostgreSQL créées et jeu de test chargé ==="
   script:
     - echo "=== Lancement des tests pytest ==="
     - cd "Etape 4"
@@ -96,7 +98,7 @@ build:docker:
     - echo "=== Push de l'image vers GitLab Registry ==="
     - docker push "$DOCKER_IMAGE:$DOCKER_TAG"
     - docker push "$DOCKER_IMAGE:latest"
-    - echo "✅ Image publiée : $DOCKER_IMAGE:$DOCKER_TAG"
+    - 'echo "✅ Image publiée : $DOCKER_IMAGE:$DOCKER_TAG"'
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
@@ -112,7 +114,7 @@ deploy:staging:
     - apk add --no-cache docker-compose openssh-client
   script:
     - echo "=== Déploiement en staging ==="
-    - echo "Image déployée : $DOCKER_IMAGE:$DOCKER_TAG"
+    - 'echo "Image déployée : $DOCKER_IMAGE:$DOCKER_TAG"'
     - |
       cat <<EOF
       ──────────────────────────────────────────
