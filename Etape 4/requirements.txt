@@ -10,7 +10,7 @@ uvicorn==0.29.0
 pydantic==2.7.1
 
 # ML
-scikit-learn==1.4.2
+scikit-learn==1.9.0
 joblib==1.4.2
 
 # Base de données
@@ -18,7 +18,7 @@ psycopg2-binary==2.9.9
 python-dotenv==1.0.1
 
 # Monitoring Prometheus (Étape 5)
-prometheus-fastapi-instrumentator==6.4.0
+prometheus-fastapi-instrumentator==6.1.0
 
 # Tests
 pytest==8.1.1
