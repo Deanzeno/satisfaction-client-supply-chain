@@ -167,7 +167,13 @@ def get_companies(
                 s.pct_bad
             FROM entreprise e
             JOIN categorie c           ON e.categorie_id     = c.id
-            JOIN statistiques_avis s   ON s.entreprise_id    = e.id
+            -- Une seule ligne de stats par entreprise : la plus récente
+            -- (statistiques_avis garde l'historique, une ligne par run du DAG)
+            JOIN (
+                SELECT DISTINCT ON (entreprise_id) *
+                FROM statistiques_avis
+                ORDER BY entreprise_id, date_scraping DESC, id DESC
+            ) s ON s.entreprise_id = e.id
             WHERE 1=1
         """
         params = []
@@ -225,7 +231,13 @@ def get_stats():
                 SUM(s.nb_avis_total)                 AS total_avis
             FROM categorie c
             JOIN entreprise e        ON e.categorie_id   = c.id
-            JOIN statistiques_avis s ON s.entreprise_id  = e.id
+            -- Une seule ligne de stats par entreprise : la plus récente
+            -- (statistiques_avis garde l'historique, une ligne par run du DAG)
+            JOIN (
+                SELECT DISTINCT ON (entreprise_id) *
+                FROM statistiques_avis
+                ORDER BY entreprise_id, date_scraping DESC, id DESC
+            ) s ON s.entreprise_id = e.id
             GROUP BY c.nom
             ORDER BY trustscore_moyen DESC
         """)
