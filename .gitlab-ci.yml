@@ -62,7 +62,7 @@ test:pytest:
       junit: "Etape 4/report.xml"
     expire_in: 7 days
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "web"'
 
 test:lint:
   stage: test
@@ -75,7 +75,7 @@ test:lint:
     - flake8 "Etape 5/dags/scraping_dag.py" --max-line-length=120 --ignore=E501,W503 || true
   allow_failure: true
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "web"'
 
 # ────────────────────────────────────────────────
 # STAGE 2 : BUILD
