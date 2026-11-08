@@ -72,6 +72,7 @@ test:lint:
   script:
     - echo "=== Vérification de la qualité du code ==="
     - flake8 "Etape 4/main.py" --max-line-length=120 --ignore=E501,W503 || true
+    - flake8 "Etape 4/api_logs.py" --max-line-length=120 --ignore=E501,W503 || true
     - flake8 "Etape 5/dags/scraping_dag.py" --max-line-length=120 --ignore=E501,W503 || true
   allow_failure: true
   rules:

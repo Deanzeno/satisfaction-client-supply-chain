@@ -9,6 +9,8 @@ Endpoints :
     GET  /stats       → statistiques globales
     GET  /metrics     → métriques Prometheus (auto-exposé)
 
+Chaque appel est journalisé (api_logs.py) : stdout + index ElasticSearch "api-logs".
+
 Schéma PostgreSQL (base : satisfaction_client) :
     - categorie(id, nom)
     - entreprise(id, categorie_id, nom, slug)
@@ -23,11 +25,12 @@ import os
 import joblib
 import psycopg2
 import psycopg2.extras
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from prometheus_fastapi_instrumentator import Instrumentator
+from api_logs import middleware_logs, infos_prediction
 
 # Chargement des variables d'environnement
 load_dotenv()
@@ -41,6 +44,9 @@ app = FastAPI(
 
 # Monitoring Prometheus — expose automatiquement GET /metrics
 Instrumentator().instrument(app).expose(app)
+
+# Logs API : une ligne JSON par requête (stdout + index ElasticSearch "api-logs")
+app.middleware("http")(middleware_logs)
 
 # Autoriser les requêtes depuis le navigateur (CORS)
 app.add_middleware(
@@ -99,7 +105,7 @@ def root():
 
 # ── ENDPOINT 2 : Prédiction du sentiment ─────────────────────────────────────
 @app.post("/predict", response_model=PredictResponse, summary="Prédire le sentiment d'un avis")
-def predict_sentiment(request: PredictRequest):
+def predict_sentiment(request: PredictRequest, http_request: Request):
     """
     Analyse le sentiment d'un texte d'avis client.
 
@@ -130,6 +136,9 @@ def predict_sentiment(request: PredictRequest):
     # Probabilité de la prédiction (confiance)
     probas    = modele.predict_proba(texte_vectorise)[0]
     confiance = round(float(max(probas)), 2)
+
+    # Informations ajoutées au log de cet appel (suivi de la dérive des entrées)
+    http_request.state.log_extra = infos_prediction(request.texte, sentiment, confiance)
 
     return PredictResponse(
         texte=request.texte,

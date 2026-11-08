@@ -1,0 +1,55 @@
+{
+  "notes": {
+    "psi": 0.24741872965327333,
+    "p_chi2": 2.3328821956155665e-08,
+    "moyenne_ref": 2.9100719424460433,
+    "moyenne_act": 3.9426751592356686,
+    "positif_ref": 0.5,
+    "positif_act": 0.7229299363057324,
+    "cinq_etoiles_ref": 0,
+    "cinq_etoiles_act": 194
+  },
+  "reponse": {
+    "taux_ref": 0.014388489208633094,
+    "taux_act": 0.9936305732484076,
+    "p_chi2": 1.0031222208308852e-124
+  },
+  "longueur": {
+    "mediane_ref": 8.0,
+    "mediane_act": 8.0,
+    "moyenne_ref": 24.9568345323741,
+    "moyenne_act": 16.59235668789809,
+    "p_ks": 0.0014967095480979704
+  },
+  "langue": {
+    "psi": 0.09768783580316759,
+    "p_chi2": 0.0008138870641590506,
+    "anglais_ref": 0.2589928057553957,
+    "anglais_act": 0.13694267515923567
+  },
+  "vocabulaire": {
+    "hors_vocab_ref": 0.3150548354935194,
+    "hors_vocab_act": 0.2429088140110413
+  },
+  "predictions": {
+    "psi": 0.24168930111429332,
+    "p_chi2": 2.8277148055341837e-08,
+    "positif_ref": 0.4568345323741007,
+    "positif_act": 0.6878980891719745
+  },
+  "performance": {
+    "accuracy_ref_validation_croisee": 0.7122302158273381,
+    "accuracy_actuel": 0.7707006369426752,
+    "f1_macro_ref": 0.6288067801550553,
+    "f1_macro_actuel": 0.5357706695286313,
+    "reference_toujours_positif_ref": 0.5,
+    "reference_toujours_positif_actuel": 0.7229299363057324,
+    "avance_ref_points": 21.223021582733814,
+    "avance_act_points": 4.777070063694278
+  },
+  "effectifs": {
+    "reference": 278,
+    "actuel": 314,
+    "total": 592
+  }
+}

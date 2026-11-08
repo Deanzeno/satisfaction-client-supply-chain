@@ -30,7 +30,7 @@ cryptobaseatm.com,cryptobaseatm.com,atm,2.3,7,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:
 Rockland Trust,rocklandtrust.com,atm,1.9,14,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:19
 Atmx,atmx.net,atm,1.8,19,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:19
 BECU,becu.org,atm,1.6,165,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:19
-PNC Bank,pnc.com,atm,1.4,2070,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:19
+PNC Bank,pnc.com,atm,1.4,2070,5.5,0.7,1.4,3.8,88.6,2026-07-02 12:53:19
 Centrohelp,centrohelp.com,atm,1.4,36,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:19
 Bitcoin Depot,bitcoindepot.com,atm,1.2,70,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:19
 Nationwide Payment Systems,nationwidepaymentsystems.com,atm,0,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:19
@@ -46,13 +46,13 @@ Acme ATM,acmeatm.cash,atm,0,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:25
 Locations Coinflip,locations.coinflip.tech,atm,0,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:25
 Stackcreditcard,stackcreditcard.com,atm,0,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:25
 Trumaccrb,trumaccrb.com,atm,0,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:25
-Queensboro,www.queensboro.com,clothing_store,4.9,30827,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-DavidSW,davidsw.com,clothing_store,4.9,3626,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Red Tuna Shirt Club,redtunashirtclub.com,clothing_store,4.9,3463,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Minted New York,mintednewyork.com,clothing_store,4.9,3332,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-"Custom Patch Hats, LLC",www.custompatchhats.com,clothing_store,4.9,2808,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Tiny Little Monster,tinylittlemonster.com,clothing_store,4.9,1997,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-CreateMyTee,www.createmytee.com,clothing_store,4.9,1814,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
+Queensboro,www.queensboro.com,clothing_store,4.9,30827,94.7,4.1,0.7,0.2,0.3,2026-07-02 12:53:33
+DavidSW,davidsw.com,clothing_store,4.9,3626,98.1,1.1,0.3,0.1,0.4,2026-07-02 12:53:33
+Red Tuna Shirt Club,redtunashirtclub.com,clothing_store,4.9,3463,93.1,4.9,1.1,0.3,0.5,2026-07-02 12:53:33
+Minted New York,mintednewyork.com,clothing_store,4.9,3332,96.4,1.9,0.6,0.5,0.5,2026-07-02 12:53:33
+"Custom Patch Hats, LLC",www.custompatchhats.com,clothing_store,4.9,2808,93.1,3.7,1.8,0.8,0.6,2026-07-02 12:53:33
+Tiny Little Monster,tinylittlemonster.com,clothing_store,4.9,1997,92.2,5.1,1.6,0.6,0.6,2026-07-02 12:53:33
+CreateMyTee,www.createmytee.com,clothing_store,4.9,1814,94.6,3.9,0.6,0.4,0.4,2026-07-02 12:53:33
 Ovcio,www.ovcio.com,clothing_store,4.9,1541,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
 Phigora,www.phigora.com,clothing_store,4.9,808,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
 MatchKicks.com,matchkicks.com,clothing_store,4.9,589,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
@@ -60,13 +60,13 @@ Shopwithhustle,shopwithhustle.com,clothing_store,4.9,265,0.0,0.0,0.0,0.0,0.0,202
 'Stache Salt,stachesalt.com,clothing_store,4.9,254,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
 Eterneva,eterneva.com,clothing_store,4.9,253,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
 Exotea,exotea.fr,clothing_store,4.9,87,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-ShirtSpace,www.shirtspace.com,clothing_store,4.8,39155,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Sunglass Fix,www.thesunglassfix.com,clothing_store,4.8,30145,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Holabird Sports,www.holabirdsports.com,clothing_store,4.8,10508,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Thread Logic,threadlogic.com,clothing_store,4.8,5567,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-"Sportdecals, Inc.",sportdecals.com,clothing_store,4.8,3042,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Selini New York,www.selininy.com,clothing_store,4.8,1987,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:33
-Luxury Of Watches,luxuryofwatches.com,clothing_store,4.8,1916,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:39
+ShirtSpace,www.shirtspace.com,clothing_store,4.8,39155,89.5,5.4,1.9,1.0,2.2,2026-07-02 12:53:33
+Sunglass Fix,www.thesunglassfix.com,clothing_store,4.8,30145,88.5,5.3,1.7,1.1,3.4,2026-07-02 12:53:33
+Holabird Sports,www.holabirdsports.com,clothing_store,4.8,10508,89.2,4.5,1.9,1.3,3.1,2026-07-02 12:53:33
+Thread Logic,threadlogic.com,clothing_store,4.8,5567,84.9,7.3,3.7,1.9,2.3,2026-07-02 12:53:33
+"Sportdecals, Inc.",sportdecals.com,clothing_store,4.8,3042,88.8,5.9,2.8,1.2,1.2,2026-07-02 12:53:33
+Selini New York,www.selininy.com,clothing_store,4.8,1987,87.8,6.7,2.0,1.0,2.4,2026-07-02 12:53:33
+Luxury Of Watches,luxuryofwatches.com,clothing_store,4.8,1916,79.4,7.4,3.3,3.2,6.7,2026-07-02 12:53:39
 RG Riley,www.rgriley.com,clothing_store,4.8,1659,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:39
 William Henry,williamhenry.com,clothing_store,4.8,1582,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:39
 Bolt Printing,boltprinting.com,clothing_store,4.8,1558,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:39
@@ -87,14 +87,14 @@ Stjärna Apparel,stjarnaapparel.co.uk,clothing_store,4.8,193,0.0,0.0,0.0,0.0,0.0
 Tatyana Clothing,tatyana.com,clothing_store,4.8,183,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:39
 AlHaya Fashion,alhayafashion.com,clothing_store,4.8,88,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:39
 UltraCore Systems,ultracoresystems.com,clothing_store,4.8,62,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Chrono24,www.chrono24.com,clothing_store,4.7,47852,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Fragrance Outlet,fragranceoutlet.com,clothing_store,4.7,16839,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Super Casuals,www.supercasuals.com,clothing_store,4.7,6956,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Island Importer,www.islandimporter.com,clothing_store,4.7,6308,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Pawn America,www.pawnamerica.com,clothing_store,4.7,5734,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Bonfire,bonfire.com,clothing_store,4.7,5654,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Yoogi's Closet,yoogiscloset.com,clothing_store,4.7,3580,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
-Bagmasters.com,bagmasters.com,clothing_store,4.7,1859,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
+Chrono24,www.chrono24.com,clothing_store,4.7,47852,89.0,5.0,1.8,0.9,3.3,2026-07-02 12:53:45
+Fragrance Outlet,fragranceoutlet.com,clothing_store,4.7,16839,85.4,4.9,2.5,1.6,5.6,2026-07-02 12:53:45
+Super Casuals,www.supercasuals.com,clothing_store,4.7,6956,86.9,4.7,2.0,1.6,4.8,2026-07-02 12:53:45
+Island Importer,www.islandimporter.com,clothing_store,4.7,6308,82.6,9.6,3.5,2.1,2.2,2026-07-02 12:53:45
+Pawn America,www.pawnamerica.com,clothing_store,4.7,5734,87.2,4.3,2.4,1.6,4.6,2026-07-02 12:53:45
+Bonfire,bonfire.com,clothing_store,4.7,5654,86.2,5.3,3.0,1.7,3.8,2026-07-02 12:53:45
+Yoogi's Closet,yoogiscloset.com,clothing_store,4.7,3580,90.1,4.0,2.0,1.2,2.7,2026-07-02 12:53:45
+Bagmasters.com,bagmasters.com,clothing_store,4.7,1859,84.3,7.9,3.3,2.1,2.5,2026-07-02 12:53:45
 Woolx,woolx.com,clothing_store,4.7,1378,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
 Replacement Lens Express,replacementlensexpress.com,clothing_store,4.7,609,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
 Tops and Bottoms,topsandbottomsusa.com,clothing_store,4.7,595,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:45
@@ -112,14 +112,14 @@ water when dry™,waterwhendry.com,clothing_store,4.7,100,0.0,0.0,0.0,0.0,0.0,20
 eS Skateboarding,esskateboarding.com,clothing_store,4.7,75,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
 Emerica,emerica.com,clothing_store,4.7,62,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
 Warm People,warmpeople.co,clothing_store,4.7,40,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-Peaches Boutique,peachesboutique.com,clothing_store,4.6,7760,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-Ashford.com,www.ashford.com,clothing_store,4.6,6712,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-Luvme Hair,luvmehair.com,clothing_store,4.6,6143,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-"Gearhead, Rock/Creek",udans.com,clothing_store,4.6,4473,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-iTailor,itailor.com,clothing_store,4.6,3778,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-menique.com,menique.com,clothing_store,4.6,3273,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-ororo Heated Apparel,ororowear.com,clothing_store,4.6,2204,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
-Three Nails,threenails.com,clothing_store,4.6,2104,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
+Peaches Boutique,peachesboutique.com,clothing_store,4.6,7760,79.0,8.8,4.5,2.6,5.1,2026-07-02 12:53:51
+Ashford.com,www.ashford.com,clothing_store,4.6,6712,81.4,5.5,2.4,1.9,8.7,2026-07-02 12:53:51
+Luvme Hair,luvmehair.com,clothing_store,4.6,6143,83.8,3.7,1.4,1.4,9.6,2026-07-02 12:53:51
+"Gearhead, Rock/Creek",udans.com,clothing_store,4.6,4473,89.8,4.0,2.1,1.2,2.9,2026-07-02 12:53:51
+iTailor,itailor.com,clothing_store,4.6,3778,73.2,19.8,3.7,1.4,2.0,2026-07-02 12:53:51
+menique.com,menique.com,clothing_store,4.6,3273,84.6,6.9,2.9,1.8,3.9,2026-07-02 12:53:51
+ororo Heated Apparel,ororowear.com,clothing_store,4.6,2204,89.6,3.4,1.1,0.9,5.0,2026-07-02 12:53:51
+Three Nails,threenails.com,clothing_store,4.6,2104,78.0,8.1,6.3,2.4,5.2,2026-07-02 12:53:51
 Shinesty,www.shinesty.com,clothing_store,4.6,1193,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
 Averill's Sharper Uniforms,sharperuniforms.com,clothing_store,4.6,1063,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
 ColorfulCritters,colorfulcritters.com,clothing_store,4.6,396,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:51
@@ -135,10 +135,10 @@ Kxkshop,kxkshop.au,clothing_store,4.6,105,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:5
 hypeach.com,hypeach.com,clothing_store,4.6,88,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
 ALLGOAL,allgoal.com,clothing_store,4.6,77,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
 xans.usa,xans.us,clothing_store,4.6,49,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
-Zenni Optical,www.zennioptical.com,clothing_store,4.5,166076,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
-Wolf & Badger,www.wolfandbadger.com,clothing_store,4.5,59974,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
-Ruby Lane,www.rubylane.com,clothing_store,4.5,15535,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
-FragranceMarket.com,fragrancemarket.com,clothing_store,4.5,2131,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
+Zenni Optical,www.zennioptical.com,clothing_store,4.5,166076,82.2,8.7,3.1,2.1,3.9,2026-07-02 12:53:57
+Wolf & Badger,www.wolfandbadger.com,clothing_store,4.5,59974,81.0,5.4,3.4,2.5,7.7,2026-07-02 12:53:57
+Ruby Lane,www.rubylane.com,clothing_store,4.5,15535,82.8,7.3,4.2,2.0,3.6,2026-07-02 12:53:57
+FragranceMarket.com,fragrancemarket.com,clothing_store,4.5,2131,80.9,5.6,2.5,2.4,8.5,2026-07-02 12:53:57
 Haspel,haspel.com,clothing_store,4.5,766,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
 Straight To Hell,straighttohellapparel.com,clothing_store,4.5,696,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
 Koprez®,koprez.com,clothing_store,4.5,630,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:53:57
@@ -152,15 +152,15 @@ Shirts In Bulk,shirtsinbulk.com,clothing_store,4.5,65,0.0,0.0,0.0,0.0,0.0,2026-0
 Oh Lola Swimwear,ohlolaswimwear.com,clothing_store,4.5,47,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
 Haven Golf Company,havengolfcompany.com,clothing_store,4.5,32,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
 Vex Clothing,vexclothing.com,clothing_store,4.5,26,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-TeePublic,www.teepublic.com,clothing_store,4.4,624467,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-GlassesUSA,www.glassesusa.com,clothing_store,4.4,132625,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-US Killstar,us.killstar.com,clothing_store,4.4,43993,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-Jomashop,www.jomashop.com,clothing_store,4.4,41682,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-Frames Direct,www.framesdirect.com,clothing_store,4.4,30544,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-Lulus,www.lulus.com,clothing_store,4.4,13806,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-K-Swiss US,www.kswiss.com,clothing_store,4.4,8232,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-Aelfric Eden,www.aelfriceden.com,clothing_store,4.4,3711,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
-Fansidea,fansidea.com,clothing_store,4.4,2627,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
+TeePublic,www.teepublic.com,clothing_store,4.4,624467,77.9,7.3,4.9,3.5,6.4,2026-07-02 12:54:03
+GlassesUSA,www.glassesusa.com,clothing_store,4.4,132625,71.3,14.5,6.2,2.3,5.6,2026-07-02 12:54:03
+US Killstar,us.killstar.com,clothing_store,4.4,43993,80.0,8.1,3.7,2.4,5.8,2026-07-02 12:54:03
+Jomashop,www.jomashop.com,clothing_store,4.4,41682,78.8,6.5,2.3,1.7,10.7,2026-07-02 12:54:03
+Frames Direct,www.framesdirect.com,clothing_store,4.4,30544,81.3,8.9,3.2,2.4,4.2,2026-07-02 12:54:03
+Lulus,www.lulus.com,clothing_store,4.4,13806,75.3,6.6,4.3,3.7,10.1,2026-07-02 12:54:03
+K-Swiss US,www.kswiss.com,clothing_store,4.4,8232,80.9,5.5,3.1,2.0,8.5,2026-07-02 12:54:03
+Aelfric Eden,www.aelfriceden.com,clothing_store,4.4,3711,81.0,6.5,1.2,1.3,10.0,2026-07-02 12:54:03
+Fansidea,fansidea.com,clothing_store,4.4,2627,67.8,6.4,3.8,3.2,18.7,2026-07-02 12:54:03
 I Love My Freedom,ilovemyfreedom.com,clothing_store,4.4,1631,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
 American Giant,american-giant.com,clothing_store,4.4,1423,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
 The Noli Shop,thenolishop.com,clothing_store,4.4,1292,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:03
@@ -178,11 +178,11 @@ Opok,opok.com,clothing_store,4.4,106,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
 dewbu.com,dewbu.com,clothing_store,4.4,101,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
 Parisa Wang,parisawang.com,clothing_store,4.4,100,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
 East West Souk,ewsouk.com,clothing_store,4.4,80,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
-Fashion Nova,www.fashionnova.com,clothing_store,4.3,196872,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
-Redbubble,www.redbubble.com,clothing_store,4.3,40711,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
-Cupshe,cupshe.com,clothing_store,4.3,25021,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
-Custom Ink,www.customink.com,clothing_store,4.3,13622,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
-Jacobtime,www.jacobtime.com,clothing_store,4.3,2225,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
+Fashion Nova,www.fashionnova.com,clothing_store,4.3,196872,70.7,10.6,6.0,2.9,9.9,2026-07-02 12:54:08
+Redbubble,www.redbubble.com,clothing_store,4.3,40711,72.0,5.2,3.7,4.3,14.8,2026-07-02 12:54:08
+Cupshe,cupshe.com,clothing_store,4.3,25021,65.3,9.2,4.7,4.7,16.3,2026-07-02 12:54:08
+Custom Ink,www.customink.com,clothing_store,4.3,13622,82.0,8.0,4.1,2.2,3.6,2026-07-02 12:54:08
+Jacobtime,www.jacobtime.com,clothing_store,4.3,2225,81.8,5.8,2.9,2.6,7.0,2026-07-02 12:54:08
 Varsity Base,www.varsitybase.com,clothing_store,4.3,1585,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
 Eric Javits,ericjavits.com,clothing_store,4.3,1120,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
 Fioboc,fioboc.com,clothing_store,4.3,1090,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:08
@@ -195,15 +195,15 @@ Fudoshin,fudoshin.co,clothing_store,4.3,169,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54
 Crown Forever,www.crownforeverla.com,clothing_store,4.3,154,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
 Keily's Irish Dance & Gifts,keilys.com,clothing_store,4.3,125,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
 Ellie Belle,elliebelle.com,clothing_store,4.3,98,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-CafePress,www.cafepress.com,clothing_store,4.2,202751,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-OptiContacts.com,opticontacts.com,clothing_store,4.2,44729,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-Stitch Fix,stitchfix.com,clothing_store,4.2,37842,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-PatPat,www.patpat.com,clothing_store,4.2,32704,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-Jiffy,jiffy.com,clothing_store,4.2,4005,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-HerRoom,www.herroom.com,clothing_store,4.2,3181,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-Palladium US,palladiumboots.com,clothing_store,4.2,2574,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-French Crown,www.frenchcrown.com,clothing_store,4.2,2556,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
-Dobell,dobell.com,clothing_store,4.2,2049,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
+CafePress,www.cafepress.com,clothing_store,4.2,202751,65.3,10.2,8.2,6.4,9.9,2026-07-02 12:54:14
+OptiContacts.com,opticontacts.com,clothing_store,4.2,44729,74.4,6.3,4.0,3.7,11.5,2026-07-02 12:54:14
+Stitch Fix,stitchfix.com,clothing_store,4.2,37842,58.0,17.4,12.7,6.3,5.6,2026-07-02 12:54:14
+PatPat,www.patpat.com,clothing_store,4.2,32704,73.0,11.6,1.8,1.6,11.9,2026-07-02 12:54:14
+Jiffy,jiffy.com,clothing_store,4.2,4005,73.9,4.9,4.2,3.7,13.3,2026-07-02 12:54:14
+HerRoom,www.herroom.com,clothing_store,4.2,3181,64.5,7.9,4.6,3.9,19.0,2026-07-02 12:54:14
+Palladium US,palladiumboots.com,clothing_store,4.2,2574,74.7,5.3,3.3,3.2,13.5,2026-07-02 12:54:14
+French Crown,www.frenchcrown.com,clothing_store,4.2,2556,73.3,4.2,1.3,1.9,19.3,2026-07-02 12:54:14
+Dobell,dobell.com,clothing_store,4.2,2049,74.8,7.8,4.8,3.5,9.2,2026-07-02 12:54:14
 Eyemart Express,eyemartexpress.com,clothing_store,4.2,1255,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
 Tipsy Elves,tipsyelves.com,clothing_store,4.2,1052,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:14
 GearBunch,gearbunch.com,clothing_store,4.2,272,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
@@ -214,10 +214,10 @@ Adoratti - Handbags,adoratti.com,clothing_store,4.2,92,0.0,0.0,0.0,0.0,0.0,2026-
 Darn Good Yarn,darngoodyarn.com,clothing_store,4.2,92,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
 Tacoheal,tacoheal.com,clothing_store,4.2,79,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
 amazingcustomize.com,amazingcustomize.com,clothing_store,4.2,75,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
-FIGS,wearfigs.com,clothing_store,4.1,25838,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
-LilySilk,lilysilk.com,clothing_store,4.1,22797,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
-FITJEANS,fitjeans.com,clothing_store,4.1,12639,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
-Rockabilia,www.rockabilia.com,clothing_store,4.1,6457,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
+FIGS,wearfigs.com,clothing_store,4.1,25838,69.2,6.2,5.7,4.6,14.3,2026-07-02 12:54:20
+LilySilk,lilysilk.com,clothing_store,4.1,22797,75.8,8.0,3.9,3.0,9.2,2026-07-02 12:54:20
+FITJEANS,fitjeans.com,clothing_store,4.1,12639,69.3,9.2,6.9,5.2,9.4,2026-07-02 12:54:20
+Rockabilia,www.rockabilia.com,clothing_store,4.1,6457,70.6,9.2,4.9,3.5,11.8,2026-07-02 12:54:20
 Joss & Main,www.jossandmain.com,clothing_store,4.1,1182,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
 Sachin & Babi,sachinandbabi.com,clothing_store,4.1,656,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
 Meear,meear.com,clothing_store,4.1,583,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:20
@@ -231,11 +231,11 @@ Discountdressshop,discountdressshop.com,clothing_store,4.1,196,0.0,0.0,0.0,0.0,0
 Printyourwear,printyourwear.com,clothing_store,4.1,191,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
 Dekayedclothing,dekayedclothing.store,clothing_store,4.1,118,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
 Origo Shoes,origoshoes.com,clothing_store,4.1,90,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
-PromGirl.com,www.promgirl.com,clothing_store,4,19145,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
-Spreadshirt North America,www.spreadshirt.com,clothing_store,4,16597,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
-DAILYLOOK,dailylook.com,clothing_store,4,4195,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
-GeckoCustom,geckocustom.com,clothing_store,4,3524,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
-1stDibs,www.1stdibs.com,clothing_store,4,3352,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
+PromGirl.com,www.promgirl.com,clothing_store,4,19145,70.7,12.8,6.2,4.1,6.2,2026-07-02 12:54:26
+Spreadshirt North America,www.spreadshirt.com,clothing_store,4,16597,73.0,8.4,4.6,3.7,10.3,2026-07-02 12:54:26
+DAILYLOOK,dailylook.com,clothing_store,4,4195,61.2,17.8,6.0,3.8,11.2,2026-07-02 12:54:26
+GeckoCustom,geckocustom.com,clothing_store,4,3524,65.0,3.9,1.4,2.1,27.5,2026-07-02 12:54:26
+1stDibs,www.1stdibs.com,clothing_store,4,3352,78.4,5.4,1.9,1.5,12.7,2026-07-02 12:54:26
 Rockstar Original,rockstaroriginal.com,clothing_store,4,1406,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
 Hollow Socks,hollowsocks.com,clothing_store,4,1300,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
 Montana West World,montanawestworld.com,clothing_store,4,1072,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
@@ -247,13 +247,13 @@ CubeBik,cubebik.com,clothing_store,4,205,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
 23point5,23point5.com,clothing_store,4,70,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
 Hat Club,hatclub.com,clothing_store,4,65,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:26
 Clohill,www.clohill.com,clothing_store,4,63,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-The RealReal,therealreal.com,clothing_store,3.9,129417,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-Shapellx,shapellx.com,clothing_store,3.9,51648,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-Shapermint,shapermint.com,clothing_store,3.9,42630,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-Coofandy,coofandy.com,clothing_store,3.9,11346,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-GUNNAR Optiks,gunnar.com,clothing_store,3.9,5213,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-Cool Frames,www.coolframes.com,clothing_store,3.9,4668,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-albinadyla.com,albinadyla.com,clothing_store,3.9,2085,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
+The RealReal,therealreal.com,clothing_store,3.9,129417,64.6,7.3,7.0,5.6,15.4,2026-07-02 12:54:31
+Shapellx,shapellx.com,clothing_store,3.9,51648,63.5,9.6,5.9,4.5,16.5,2026-07-02 12:54:31
+Shapermint,shapermint.com,clothing_store,3.9,42630,68.6,10.8,4.9,3.2,12.5,2026-07-02 12:54:31
+Coofandy,coofandy.com,clothing_store,3.9,11346,53.9,15.7,6.5,5.4,18.5,2026-07-02 12:54:31
+GUNNAR Optiks,gunnar.com,clothing_store,3.9,5213,72.9,9.3,4.9,3.3,9.7,2026-07-02 12:54:31
+Cool Frames,www.coolframes.com,clothing_store,3.9,4668,67.2,8.3,4.1,3.8,16.7,2026-07-02 12:54:31
+albinadyla.com,albinadyla.com,clothing_store,3.9,2085,82.1,4.2,0.6,0.7,12.4,2026-07-02 12:54:31
 Spiral USA,spiralusa.com,clothing_store,3.9,1032,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
 Galartsy,galartsy.com,clothing_store,3.9,698,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
 DaisySilk.com,daisysilk.com,clothing_store,3.9,390,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
@@ -263,11 +263,11 @@ BABEYOND,babeyond.com,clothing_store,3.9,178,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:5
 Hozzify,hozzify.co,clothing_store,3.9,89,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
 Oluolin,oluolin.com,clothing_store,3.9,50,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
 Prose Print - Song Lyrics & Custom Text Shirts,proseprint.com,clothing_store,3.9,30,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-Printblur,printblur.com,clothing_store,3.8,13033,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-I.AM.GIA,iamgia.com,clothing_store,3.8,8839,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-Baltini,baltini.com,clothing_store,3.8,5184,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:31
-Selfie Leslie,selfieleslie.com,clothing_store,3.8,2465,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
-Slipintosoft,slipintosoft.com,clothing_store,3.8,1842,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
+Printblur,printblur.com,clothing_store,3.8,13033,59.2,8.4,4.9,3.8,23.7,2026-07-02 12:54:31
+I.AM.GIA,iamgia.com,clothing_store,3.8,8839,63.5,8.0,5.8,4.8,17.9,2026-07-02 12:54:31
+Baltini,baltini.com,clothing_store,3.8,5184,79.1,4.1,1.8,1.4,13.7,2026-07-02 12:54:31
+Selfie Leslie,selfieleslie.com,clothing_store,3.8,2465,59.9,7.0,6.2,5.6,21.2,2026-07-02 12:54:37
+Slipintosoft,slipintosoft.com,clothing_store,3.8,1842,59.7,8.7,5.7,5.4,20.5,2026-07-02 12:54:37
 VICI Collection,www.vicicollection.com,clothing_store,3.8,1695,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
 ABBE Glasses,abbeglasses.com,clothing_store,3.8,875,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
 Polynesian Pride™,polynesianpride.co,clothing_store,3.8,166,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
@@ -279,9 +279,9 @@ Stylesock,www.stylesock.com,clothing_store,3.8,72,0.0,0.0,0.0,0.0,0.0,2026-07-02
 Nuage,nuagewears.com,clothing_store,3.8,72,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
 Rue Haya,ruehaya.com,clothing_store,3.8,64,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
 Inkdify,inkdify.com,clothing_store,3.8,26,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
-printerval.com,printerval.com,clothing_store,3.7,98803,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
-U.S. Polo Assn.,uspoloassn.com,clothing_store,3.7,15007,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
-Allbirds,allbirds.com,clothing_store,3.7,2647,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
+printerval.com,printerval.com,clothing_store,3.7,98803,59.4,7.8,4.2,3.7,24.9,2026-07-02 12:54:37
+U.S. Polo Assn.,uspoloassn.com,clothing_store,3.7,15007,60.9,7.6,4.6,4.3,22.6,2026-07-02 12:54:37
+Allbirds,allbirds.com,clothing_store,3.7,2647,71.2,8.9,4.0,4.3,11.7,2026-07-02 12:54:37
 LiveWellx LLC,premiumfoot.com,clothing_store,3.7,1204,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
 Scrubin Uniforms,scrubin.com,clothing_store,3.7,887,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
 Wonderprintshop,wonderprintshop.com,clothing_store,3.7,274,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:37
@@ -292,26 +292,26 @@ Dihaga,dihaga.com,clothing_store,3.7,154,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 Park Candy,parkcandy.com,clothing_store,3.7,150,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 Fanssio.com,fanssio.com,clothing_store,3.7,126,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 Kashmir Box,www.kashmirbox.com,clothing_store,3.7,79,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
-Fabletics US,fabletics.com,clothing_store,3.6,148107,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
+Fabletics US,fabletics.com,clothing_store,3.6,148107,60.9,13.4,10.2,6.2,9.3,2026-07-02 12:54:43
 Discounttoday,discounttoday.net,clothing_store,3.6,309,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 LECHERY,lecherynewyork.com,clothing_store,3.6,28,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 Hoodies For Heroes,hoodiesforheroes.shop,clothing_store,3.5,1619,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 Coolibar,www.coolibar.com,clothing_store,3.5,555,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 sundaycitizen.co,sundaycitizen.co,clothing_store,3.5,162,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 LI HANTON,lihanton.com,clothing_store,3.5,42,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
-Mott & Bow,www.mottandbow.com,clothing_store,3.4,15722,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
-Filippo Loreti,filippoloreti.com,clothing_store,3.4,7333,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
-SKIMS,skims.com,clothing_store,3.4,7060,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
+Mott & Bow,www.mottandbow.com,clothing_store,3.4,15722,46.7,10.1,12.0,9.2,22.0,2026-07-02 12:54:43
+Filippo Loreti,filippoloreti.com,clothing_store,3.4,7333,66.4,12.4,4.0,3.3,13.9,2026-07-02 12:54:43
+SKIMS,skims.com,clothing_store,3.4,7060,55.7,5.8,5.0,5.3,28.2,2026-07-02 12:54:43
 Paul Rich,paul-rich.com,clothing_store,3.4,524,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 Rockatee,rockatee.com,clothing_store,3.4,198,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 VinCo Hawaiian Shirts,hawaiianshirtss.com,clothing_store,3.4,134,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 Theblackluxe,theblackluxe.com,clothing_store,3.4,108,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:43
 LEEHANTON,leehanton.com,clothing_store,3.4,107,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
 Mariam's Collection,mariam-col.com,clothing_store,3.4,107,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
-us.speedo.com,us.speedo.com,clothing_store,3.3,5467,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
+us.speedo.com,us.speedo.com,clothing_store,3.3,5467,62.4,7.9,5.7,4.6,19.4,2026-07-02 12:54:49
 AHA SELECTED,www.ahaselected.com,clothing_store,3.3,598,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
 VelarisCity,velariscity.com,clothing_store,3.3,40,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
-Alphalete Athletics,alphaleteathletics.com,clothing_store,3.2,18980,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
+Alphalete Athletics,alphaleteathletics.com,clothing_store,3.2,18980,55.2,5.6,6.9,7.2,25.1,2026-07-02 12:54:49
 PinkBlush Maternity,pinkblushmaternity.com,clothing_store,3.2,1539,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
 Jackets Creator,www.jacketscreator.com,clothing_store,3.2,310,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
 Pemagear,www.pemagear.com,clothing_store,3.2,91,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:54:49
@@ -358,7 +358,7 @@ Outdoor Happiness,outdoor-happiness.co.uk,clothing_store,1.3,77,0.0,0.0,0.0,0.0,
 Beautiful Sunflower,beautiful-sunflower.com,clothing_store,1.2,173,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
 Arveilo,arveilo.com,clothing_store,1.1,364,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
 Emporium Allure,emporium-allure.com,clothing_store,1.1,146,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
-Triple Crown Products,triplecrownproducts.com,clothing_store,5,2400,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
+Triple Crown Products,triplecrownproducts.com,clothing_store,5,2400,88.5,6.1,2.2,1.6,1.6,2026-07-02 12:55:00
 Stateside Bead Supply,www.statesidebeadsupply.com,clothing_store,5,673,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
 Orion Leather Company,www.orionleathercompany.com,clothing_store,5,576,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
 Balani Custom Clothiers,balanicustom.com,clothing_store,5,521,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
@@ -367,8 +367,8 @@ Long Tie Store,www.longtiestore.com,clothing_store,5,416,0.0,0.0,0.0,0.0,0.0,202
 Just Wetsuits,www.justwetsuits.com,clothing_store,5,315,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
 RELYmedia,relymedia.com,clothing_store,5,298,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:00
 McGivern Diamonds,overnightdiamonds.com,clothing_store,5,257,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:06
-VampireFreaks,vampirefreaks.com,clothing_store,4.9,2543,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:06
-SexyModest Boutique,sexymodest.com,clothing_store,4.9,1791,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:06
+VampireFreaks,vampirefreaks.com,clothing_store,4.9,2543,91.4,4.9,1.6,0.8,1.3,2026-07-02 12:55:06
+SexyModest Boutique,sexymodest.com,clothing_store,4.9,1791,95.2,1.2,0.4,0.1,3.0,2026-07-02 12:55:06
 UV Skinz,uvskinz.com,clothing_store,4.9,1381,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:06
 Terry Costa,terrycosta.com,clothing_store,4.9,1242,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:06
 Shields of Strength,shieldsofstrength.com,clothing_store,4.9,1169,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:06
@@ -424,12 +424,12 @@ World's Best,worldsbest.com,clothing_store,4.9,79,0.0,0.0,0.0,0.0,0.0,2026-07-02
 East Meets Dress,eastmeetsdress.com,clothing_store,4.9,73,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:18
 ENGRAFFT,engrafft.com,clothing_store,4.9,66,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:18
 Fabbonatees,fabbonatees.com,clothing_store,4.9,65,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:18
-B-Wear Sportswear,www.bwear.com,clothing_store,4.8,53168,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:18
-Kewlioo,kewlioo.com,clothing_store,4.8,10054,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:18
-CM Almy,almy.com,clothing_store,4.8,7684,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:24
-Futbollufo,www.futbollufo.com,clothing_store,4.8,5321,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:24
-Oglmove,oglmove.com,clothing_store,4.8,4432,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:24
-Nuuds,nuuds.com,clothing_store,4.8,3651,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:24
+B-Wear Sportswear,www.bwear.com,clothing_store,4.8,53168,92.9,4.0,1.4,0.6,1.1,2026-07-02 12:55:18
+Kewlioo,kewlioo.com,clothing_store,4.8,10054,85.3,6.3,1.7,1.0,5.7,2026-07-02 12:55:18
+CM Almy,almy.com,clothing_store,4.8,7684,85.6,10.9,2.4,0.6,0.5,2026-07-02 12:55:24
+Futbollufo,www.futbollufo.com,clothing_store,4.8,5321,90.5,3.2,1.1,0.9,4.3,2026-07-02 12:55:24
+Oglmove,oglmove.com,clothing_store,4.8,4432,93.5,3.1,0.8,0.7,1.9,2026-07-02 12:55:24
+Nuuds,nuuds.com,clothing_store,4.8,3651,87.0,4.7,2.0,1.3,5.0,2026-07-02 12:55:24
 Aria Lattner,arialattner.com,clothing_store,4.8,1635,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:24
 Coolcabanas,coolcabanas.com,clothing_store,4.8,1254,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:24
 FM Expressions,fmexpressions.com,clothing_store,4.8,1086,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:24
@@ -514,11 +514,11 @@ whosondeck,whosondeckclo.com,clothing_store,4.8,38,0.0,0.0,0.0,0.0,0.0,2026-07-0
 Turtle Island Imports,turtleislandimports.com,clothing_store,4.8,38,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
 Stein Diamonds,steindiamonds.com,clothing_store,4.8,37,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
 Repssneaker,repssneaker.com,clothing_store,4.8,35,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
-RushOrderTees,rushordertees.com,clothing_store,4.7,10287,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
-Becharming,becharming.com,clothing_store,4.7,8923,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
-Commense,thecommense.com,clothing_store,4.7,7368,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
-Feltman Brothers,feltmanbrothers.com,clothing_store,4.7,2751,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
-Eubi Official,eubiofficial.com,clothing_store,4.7,2159,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
+RushOrderTees,rushordertees.com,clothing_store,4.7,10287,87.8,5.9,2.4,1.4,2.6,2026-07-02 12:55:47
+Becharming,becharming.com,clothing_store,4.7,8923,87.7,5.3,2.3,1.5,3.3,2026-07-02 12:55:47
+Commense,thecommense.com,clothing_store,4.7,7368,81.7,7.4,1.4,1.1,8.4,2026-07-02 12:55:47
+Feltman Brothers,feltmanbrothers.com,clothing_store,4.7,2751,90.9,2.8,2.5,1.5,2.2,2026-07-02 12:55:47
+Eubi Official,eubiofficial.com,clothing_store,4.7,2159,75.0,10.4,1.7,1.7,11.2,2026-07-02 12:55:47
 ORTTU,orttu.com,clothing_store,4.7,1519,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
 SimplyEyeglasses.com,www.simplyeyeglasses.com,clothing_store,4.7,873,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
 Beverly Diamonds,beverlydiamonds.com,clothing_store,4.7,656,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:55:47
@@ -601,10 +601,10 @@ Gonzhu,gonzhu.com,clothing_store,4.7,24,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
 Stashe,stashe.us,clothing_store,4.7,24,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
 Cliffrise,cliffrise.com,clothing_store,4.7,24,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
 specialtygiftz.com,specialtygiftz.com,clothing_store,4.7,23,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
-Br Privalia,br.privalia.com,clothing_store,4.6,13730,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
-MoissaniteCo.com,moissaniteco.com,clothing_store,4.6,3244,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
-Fast,fast.co,clothing_store,4.6,2860,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
-Rapid Wristbands,rapidwristbands.com,clothing_store,4.6,2740,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
+Br Privalia,br.privalia.com,clothing_store,4.6,13730,75.4,17.1,4.7,1.2,1.6,2026-07-02 12:56:11
+MoissaniteCo.com,moissaniteco.com,clothing_store,4.6,3244,88.8,8.2,1.2,0.5,1.3,2026-07-02 12:56:11
+Fast,fast.co,clothing_store,4.6,2860,82.5,5.4,2.0,1.6,8.4,2026-07-02 12:56:11
+Rapid Wristbands,rapidwristbands.com,clothing_store,4.6,2740,84.8,11.4,1.3,0.5,2.0,2026-07-02 12:56:11
 Free Spirited Clothing,shopfreespirited.com,clothing_store,4.6,1561,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:11
 Big Tall Direct,www.bigtalldirect.com,clothing_store,4.6,1242,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:17
 Couture USA,coutureusa.com,clothing_store,4.6,1136,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:17
@@ -716,11 +716,11 @@ La Rukico Tailors,tailor.com,clothing_store,4.6,17,0.0,0.0,0.0,0.0,0.0,2026-07-0
 Functional Technique,fntq.com,clothing_store,4.6,17,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
 manpaca.com,manpaca.com,clothing_store,4.6,17,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
 biancocasashop.com,www.biancocasashop.com,clothing_store,4.6,17,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
-Sniper Gang Apparel,www.snipergangapparel.com,clothing_store,4.5,6578,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
-SunFrog Shirts,sunfrog.com,clothing_store,4.5,4819,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
-Famvibe,famvibe.com,clothing_store,4.5,4160,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
-Edikted,edikted.com,clothing_store,4.5,2547,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
-HairCareAndBeauty.com,haircareandbeauty.com,clothing_store,4.5,1806,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
+Sniper Gang Apparel,www.snipergangapparel.com,clothing_store,4.5,6578,79.4,4.3,2.6,2.6,11.0,2026-07-02 12:56:46
+SunFrog Shirts,sunfrog.com,clothing_store,4.5,4819,64.9,10.7,5.9,4.1,14.5,2026-07-02 12:56:46
+Famvibe,famvibe.com,clothing_store,4.5,4160,82.5,6.2,2.8,1.8,6.7,2026-07-02 12:56:46
+Edikted,edikted.com,clothing_store,4.5,2547,76.2,5.3,1.4,1.8,15.3,2026-07-02 12:56:46
+HairCareAndBeauty.com,haircareandbeauty.com,clothing_store,4.5,1806,86.0,5.7,1.8,2.2,4.3,2026-07-02 12:56:46
 Ares Sportswear,www.areswear.com,clothing_store,4.5,1246,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
 PoleActive,poleactive.com,clothing_store,4.5,1223,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
 Odd Sox,oddsoxofficial.com,clothing_store,4.5,776,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:56:46
@@ -847,10 +847,10 @@ Miglax,miglax.com,clothing_store,4.5,13,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:21
 Ywctshirt,ywctshirt.com,clothing_store,4.5,13,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:21
 Clothing By Eef ,clothingbyeef.nl,clothing_store,4.5,13,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:21
 Subtlyvibrant,www.subtlyvibrant.com,clothing_store,4.5,13,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
-DXL,destinationxl.com,clothing_store,4.4,6469,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
-"Gumbies, Inc.",gumbies.com,clothing_store,4.4,4795,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
-Alpine Swiss,alpineswiss.com,clothing_store,4.4,3988,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
-OldSchoolTees,oldschooltees.com,clothing_store,4.4,1922,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
+DXL,destinationxl.com,clothing_store,4.4,6469,60.0,19.2,10.1,5.0,5.8,2026-07-02 12:57:27
+"Gumbies, Inc.",gumbies.com,clothing_store,4.4,4795,82.8,8.5,4.0,2.0,2.6,2026-07-02 12:57:27
+Alpine Swiss,alpineswiss.com,clothing_store,4.4,3988,77.6,9.4,3.6,2.6,6.8,2026-07-02 12:57:27
+OldSchoolTees,oldschooltees.com,clothing_store,4.4,1922,85.1,6.7,2.0,2.0,4.3,2026-07-02 12:57:27
 Sheshow,sheshow.com,clothing_store,4.4,1515,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
 MonarchCypressOnline,www.monarchcypressonline.com,clothing_store,4.4,1444,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
 DRESSIN,dressin.com,clothing_store,4.4,1288,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:57:27
@@ -990,13 +990,13 @@ CoulFashion,coulfashion.com,clothing_store,4.4,10,0.0,0.0,0.0,0.0,0.0,2026-07-02
 Fitnessandmodel,fitnessandmodel.com,clothing_store,4.4,10,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
 Bolsami,bolsami.com,clothing_store,4.4,10,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
 Turrau,turrau.com,clothing_store,4.4,10,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
-PRO Compression,procompression.com,clothing_store,4.3,13937,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
-discountsafetygear.com,discountsafetygear.com,clothing_store,4.3,8769,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
-Gnoce,gnoce.co.uk,clothing_store,4.3,5053,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
-Netaya,www.netaya.com,clothing_store,4.3,3423,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
-hardaddy.com,hardaddy.com,clothing_store,4.3,2875,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
-Glam Seamless Hair Extensions,www.glamseamless.com,clothing_store,4.3,2076,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
-As We Change,www.aswechange.com,clothing_store,4.3,1984,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
+PRO Compression,procompression.com,clothing_store,4.3,13937,80.8,9.0,4.2,2.5,3.5,2026-07-02 12:58:09
+discountsafetygear.com,discountsafetygear.com,clothing_store,4.3,8769,72.8,6.8,4.3,3.1,13.1,2026-07-02 12:58:09
+Gnoce,gnoce.co.uk,clothing_store,4.3,5053,67.3,5.1,2.1,2.6,22.8,2026-07-02 12:58:09
+Netaya,www.netaya.com,clothing_store,4.3,3423,73.0,8.1,4.9,3.7,10.4,2026-07-02 12:58:09
+hardaddy.com,hardaddy.com,clothing_store,4.3,2875,72.8,15.9,2.8,1.2,7.3,2026-07-02 12:58:09
+Glam Seamless Hair Extensions,www.glamseamless.com,clothing_store,4.3,2076,78.3,3.4,1.7,2.8,13.8,2026-07-02 12:58:09
+As We Change,www.aswechange.com,clothing_store,4.3,1984,58.6,14.3,9.0,5.8,12.2,2026-07-02 12:58:09
 KissProm,kissprom.com,clothing_store,4.3,1743,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
 Kerusso,kerusso.com,clothing_store,4.3,1585,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
 Designer Frames,designerframesoutlet.com,clothing_store,4.3,1033,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:58:09
@@ -1224,13 +1224,13 @@ Joyshaper,joyshaper.com,clothing_store,4.3,7,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:5
 Irzer,irzer.com,clothing_store,4.3,7,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:13
 Southern Retrievers ,southernretrievers.com,clothing_store,4.3,7,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:13
 Forged Racing,forged-racing.com,clothing_store,4.3,7,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:13
-OCEANSAPART,www.oceansapart.com,clothing_store,4.2,38924,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:13
-Gossby,gossby.com,clothing_store,4.2,37632,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:13
-TrendingCustom.com,trendingcustom.com,clothing_store,4.2,22891,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
-Sepiia,sepiia.com,clothing_store,4.2,3217,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
-Hakaiculture,hakaiculture.com,clothing_store,4.2,3147,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
-Certified Watch Store,certifiedwatchstore.com,clothing_store,4.2,2815,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
-Ever-Pretty,www.ever-pretty.com,clothing_store,4.2,2500,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
+OCEANSAPART,www.oceansapart.com,clothing_store,4.2,38924,80.6,10.5,2.5,2.0,4.4,2026-07-02 12:59:13
+Gossby,gossby.com,clothing_store,4.2,37632,75.0,7.5,4.0,3.0,10.5,2026-07-02 12:59:13
+TrendingCustom.com,trendingcustom.com,clothing_store,4.2,22891,76.3,6.7,5.1,3.1,8.8,2026-07-02 12:59:20
+Sepiia,sepiia.com,clothing_store,4.2,3217,71.8,15.3,5.2,3.1,4.6,2026-07-02 12:59:20
+Hakaiculture,hakaiculture.com,clothing_store,4.2,3147,70.3,14.7,4.9,2.5,7.7,2026-07-02 12:59:20
+Certified Watch Store,certifiedwatchstore.com,clothing_store,4.2,2815,79.3,6.0,2.9,2.1,9.7,2026-07-02 12:59:20
+Ever-Pretty,www.ever-pretty.com,clothing_store,4.2,2500,63.2,9.1,3.2,3.3,21.3,2026-07-02 12:59:20
 Caroll,caroll.com,clothing_store,4.2,1120,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
 Embroly,embroly.com,clothing_store,4.2,1028,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
 Fresh Clean Threads,freshcleantees.com,clothing_store,4.2,644,0.0,0.0,0.0,0.0,0.0,2026-07-02 12:59:20
@@ -1440,11 +1440,11 @@ Rashawnrosebridal,www.rashawnrosebridal.com,clothing_store,4.2,6,0.0,0.0,0.0,0.0
 Jessie,promdress.me.uk,clothing_store,4.2,6,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
 Biethic,biethic.com,clothing_store,4.2,6,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
 Hellstroutlet,hellstroutlet.com,clothing_store,4.2,6,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
-Modlily,modlily.com,clothing_store,4.1,11797,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
-SILKSILKY,silksilky.com,clothing_store,4.1,9729,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
-BodyCandy,www.bodycandy.com,clothing_store,4.1,6157,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
-SECONDA STRADA,secondastrada.com,clothing_store,4.1,3303,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
-Ross Simons,www.ross-simons.com,clothing_store,4.1,2009,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
+Modlily,modlily.com,clothing_store,4.1,11797,70.0,5.5,2.2,2.4,20.0,2026-07-02 13:00:18
+SILKSILKY,silksilky.com,clothing_store,4.1,9729,71.3,11.0,2.5,1.6,13.5,2026-07-02 13:00:18
+BodyCandy,www.bodycandy.com,clothing_store,4.1,6157,69.1,12.0,8.0,4.3,6.6,2026-07-02 13:00:18
+SECONDA STRADA,secondastrada.com,clothing_store,4.1,3303,88.3,7.9,1.0,0.5,2.2,2026-07-02 13:00:18
+Ross Simons,www.ross-simons.com,clothing_store,4.1,2009,65.1,8.5,7.1,4.7,14.6,2026-07-02 13:00:18
 Beauty Empire,beautyempirestore.com,clothing_store,4.1,1731,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:18
 Wordans USA,wordans.com,clothing_store,4.1,1689,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:24
 TeamShirts,teamshirts.com,clothing_store,4.1,1336,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:00:24
@@ -1709,18 +1709,18 @@ Nifty Fits,niftyfits.com,clothing_store,4.1,5,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:
 Stehalloweencostumes,stehalloweencostumes.com,clothing_store,4.1,5,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
 Pink Princess,www.pinkprincess.com,clothing_store,4.1,5,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
 Opiumparis,opiumparis.com,clothing_store,4.1,5,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Strawberrynet.com,www.strawberrynet.com,clothing_store,4,26600,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Soufeel ,www.soufeel.com,clothing_store,4,12300,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Grunt Style,gruntstyle.com,clothing_store,4,7022,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Rosewe,rosewe.com,clothing_store,4,6368,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-ModDeals.com,www.moddeals.com,clothing_store,4,4081,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Electro Threads,www.electrothreads.com,clothing_store,4,3362,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Popilush,popilush.com,clothing_store,4,3121,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-DeFlorance,deflorance.it,clothing_store,4,2543,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Indochino,indochino.com,clothing_store,4,2182,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Wantable,wantable.com,clothing_store,4,2154,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-Fandomaniax,fandomaniax-store.com,clothing_store,4,2118,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
-GS LOVE,gslovesme.com,clothing_store,4,1909,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
+Strawberrynet.com,www.strawberrynet.com,clothing_store,4,26600,75.5,14.5,5.5,1.8,2.7,2026-07-02 13:01:40
+Soufeel ,www.soufeel.com,clothing_store,4,12300,60.7,6.0,2.4,2.6,28.3,2026-07-02 13:01:40
+Grunt Style,gruntstyle.com,clothing_store,4,7022,79.8,6.9,3.1,2.4,7.8,2026-07-02 13:01:40
+Rosewe,rosewe.com,clothing_store,4,6368,70.8,8.3,2.3,1.8,16.8,2026-07-02 13:01:40
+ModDeals.com,www.moddeals.com,clothing_store,4,4081,67.1,17.3,6.8,4.0,4.8,2026-07-02 13:01:40
+Electro Threads,www.electrothreads.com,clothing_store,4,3362,76.2,7.0,4.5,3.5,8.8,2026-07-02 13:01:40
+Popilush,popilush.com,clothing_store,4,3121,59.6,6.0,4.6,4.9,24.9,2026-07-02 13:01:40
+DeFlorance,deflorance.it,clothing_store,4,2543,55.7,19.3,3.8,2.2,18.9,2026-07-02 13:01:40
+Indochino,indochino.com,clothing_store,4,2182,64.5,7.9,4.1,5.7,17.8,2026-07-02 13:01:40
+Wantable,wantable.com,clothing_store,4,2154,85.0,9.7,1.8,0.8,2.7,2026-07-02 13:01:40
+Fandomaniax,fandomaniax-store.com,clothing_store,4,2118,74.4,11.5,3.1,1.9,9.1,2026-07-02 13:01:40
+GS LOVE,gslovesme.com,clothing_store,4,1909,56.9,14.2,8.3,6.0,14.5,2026-07-02 13:01:40
 Dearpersonco,dearpersonco.store,clothing_store,4,1747,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
 James Allen Rings,jamesallen.com,clothing_store,4,1745,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
 Greg Norman Collection,www.gregnormancollection.com,clothing_store,4,987,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:01:40
@@ -2297,11 +2297,11 @@ Unionsportco,unionsportco.com,clothing_store,4,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 
 Ithomer,ithomer.com,clothing_store,4,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
 Stylefinds,stylefinds.asia,clothing_store,4,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
 Utopianpost,utopianpost.com,clothing_store,4,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
-Tiger Mist,tigermist.com,clothing_store,3.9,7227,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
-Blue Vanilla,bluevanilla.com,clothing_store,3.9,4431,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
-Maxaroma.com,maxaroma.com,clothing_store,3.9,3451,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
-safetygirl.com,www.safetygirl.com,clothing_store,3.9,2327,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
-NewYorkDress.com,www.newyorkdress.com,clothing_store,3.9,2151,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
+Tiger Mist,tigermist.com,clothing_store,3.9,7227,68.4,7.2,4.3,4.5,15.7,2026-07-02 13:04:31
+Blue Vanilla,bluevanilla.com,clothing_store,3.9,4431,76.4,7.5,3.6,2.4,10.0,2026-07-02 13:04:31
+Maxaroma.com,maxaroma.com,clothing_store,3.9,3451,88.5,4.6,1.1,0.9,4.9,2026-07-02 13:04:31
+safetygirl.com,www.safetygirl.com,clothing_store,3.9,2327,63.6,8.6,6.3,4.3,17.2,2026-07-02 13:04:31
+NewYorkDress.com,www.newyorkdress.com,clothing_store,3.9,2151,76.2,11.9,4.7,2.1,5.1,2026-07-02 13:04:31
 mytacticalpromos.com,mytacticalpromos.com,clothing_store,3.9,1197,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
 Corset Story,corset-story.com,clothing_store,3.9,949,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
 6pmseason.com,6pmseason.com,clothing_store,3.9,807,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:04:31
@@ -2576,10 +2576,10 @@ Unfold,www.unfold.love,clothing_store,3.9,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05
 OILILY,oilily.com,clothing_store,3.9,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
 Ridge Merino,ridgemerino.com,clothing_store,3.9,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
 Realdialmotion,realdialmotion.org,clothing_store,3.9,3,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
-Valanio,valanio.com,clothing_store,3.8,6797,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
-Go-Optic,www.go-optic.com,clothing_store,3.8,2809,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
-Crigne,www.crigne.com,clothing_store,3.8,2609,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
-Royal Marines Shop,royalmarinesshop.com,clothing_store,3.8,2137,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
+Valanio,valanio.com,clothing_store,3.8,6797,58.4,20.5,5.4,1.8,14.0,2026-07-02 13:05:55
+Go-Optic,www.go-optic.com,clothing_store,3.8,2809,70.1,13.3,3.9,2.0,10.7,2026-07-02 13:05:55
+Crigne,www.crigne.com,clothing_store,3.8,2609,54.6,19.2,6.2,1.6,18.4,2026-07-02 13:05:55
+Royal Marines Shop,royalmarinesshop.com,clothing_store,3.8,2137,93.4,4.0,0.9,0.3,1.4,2026-07-02 13:05:55
 Sexy Shoes,sexyshoes.com,clothing_store,3.8,1480,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
 Nnesi,www.nnesi.com,clothing_store,3.8,1466,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
 Islanders Outfitter,islandersoutfitter.com,clothing_store,3.8,784,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:05:55
@@ -3322,10 +3322,10 @@ Stashstash,stashstash.asia,clothing_store,3.8,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 1
 Duogamecard,duogamecard.com,clothing_store,3.8,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:30
 Shopharbor,shopharbor.asia,clothing_store,3.8,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:30
 Vivamusee,vivamusee.com,clothing_store,3.8,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:30
-JustFashionNow,justfashionnow.com,clothing_store,3.7,6531,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:30
-TeeTurtle,teeturtle.com,clothing_store,3.7,3595,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:30
-Lsoru,www.lsoru.com,clothing_store,3.7,1858,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:36
-Klynu,www.klynu.com,clothing_store,3.7,1802,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:36
+JustFashionNow,justfashionnow.com,clothing_store,3.7,6531,25.6,6.3,2.3,2.2,63.5,2026-07-02 13:09:30
+TeeTurtle,teeturtle.com,clothing_store,3.7,3595,82.3,10.0,2.4,1.8,3.4,2026-07-02 13:09:30
+Lsoru,www.lsoru.com,clothing_store,3.7,1858,50.6,21.7,6.4,1.9,19.4,2026-07-02 13:09:36
+Klynu,www.klynu.com,clothing_store,3.7,1802,51.3,20.0,5.2,2.4,21.1,2026-07-02 13:09:36
 Hlelu,www.hlelu.com,clothing_store,3.7,1652,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:36
 Legaragemode,legaragemode.com,clothing_store,3.7,1401,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:36
 Retaica,retaica.com,clothing_store,3.7,1272,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:09:36
@@ -4809,8 +4809,8 @@ Brandurbane,brandurbane.com,clothing_store,3.7,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 
 Essentialsfearofgod,essentialsfearofgod.us,clothing_store,3.7,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
 Entic,entic.shop,clothing_store,3.7,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
 Avatar,avatar.design,clothing_store,3.7,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
-Grip6,www.grip6.com,clothing_store,3.6,7287,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
-Plugyourholes,plugyourholes.com,clothing_store,3.6,3228,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
+Grip6,www.grip6.com,clothing_store,3.6,7287,84.0,9.4,3.7,1.9,1.1,2026-07-02 13:16:53
+Plugyourholes,plugyourholes.com,clothing_store,3.6,3228,67.2,11.0,5.9,4.6,11.4,2026-07-02 13:16:53
 ttdeye,ttdeye.com,clothing_store,3.6,1009,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
 Tluly,www.tluly.com,clothing_store,3.6,976,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
 Minnesotaworkwear,www.minnesotaworkwear.com,clothing_store,3.6,888,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:16:53
@@ -5209,9 +5209,9 @@ Emonstyle,emonstyle.com,clothing_store,3.6,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:1
 Highlighte,highlighte.com,clothing_store,3.6,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
 Cfjersey,cfjersey.store,clothing_store,3.6,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
 Gs Gymoutfit,gs.gymoutfit.shop,clothing_store,3.6,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
-ShoeDazzle,www.shoedazzle.com,clothing_store,3.5,14889,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
-Courir,www.courir.com,clothing_store,3.5,3943,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
-AURELLE Swimwear,aurelle.shop,clothing_store,3.5,1906,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
+ShoeDazzle,www.shoedazzle.com,clothing_store,3.5,14889,67.6,12.2,7.6,4.3,8.2,2026-07-02 13:18:53
+Courir,www.courir.com,clothing_store,3.5,3943,54.5,3.1,0.8,1.8,39.9,2026-07-02 13:18:53
+AURELLE Swimwear,aurelle.shop,clothing_store,3.5,1906,67.1,18.2,3.0,2.3,9.4,2026-07-02 13:18:53
 Yandy.com,www.yandy.com,clothing_store,3.5,915,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
 Aderez,aderez.com,clothing_store,3.5,869,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:53
 Promdressshop,promdressshop.com,clothing_store,3.5,770,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:18:59
@@ -5622,9 +5622,9 @@ Belly Bling,www.bellybling.net,clothing_store,3.5,0,0.0,0.0,0.0,0.0,0.0,2026-07-
 607ee74382f97.site123.me,607ee74382f97.site123.me,clothing_store,3.5,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
 Fashionov,www.fashionov.com,clothing_store,3.5,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
 Cherishables,cherishables.com,clothing_store,3.5,0,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
-JustFab US,justfab.com,clothing_store,3.4,27056,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
-italist.com,italist.com,clothing_store,3.4,3494,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
-humancustom.com,humancustom.com,clothing_store,3.4,2201,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
+JustFab US,justfab.com,clothing_store,3.4,27056,62.5,12.6,8.2,5.4,11.2,2026-07-02 13:20:56
+italist.com,italist.com,clothing_store,3.4,3494,77.7,5.5,1.2,1.2,14.3,2026-07-02 13:20:56
+humancustom.com,humancustom.com,clothing_store,3.4,2201,49.2,9.0,9.5,6.5,25.9,2026-07-02 13:20:56
 REVOLVE,revolve.com,clothing_store,3.4,1719,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
 JERSEY LOCO,jerseyloco.com,clothing_store,3.4,1037,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
 Gifnestbuys,gifnestbuys.com,clothing_store,3.4,605,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:20:56
@@ -6382,9 +6382,9 @@ Chromaembroidery,www.chromaembroidery.com,clothing_store,3.3,1,0.0,0.0,0.0,0.0,0
 dopeskillbrand.com,dopeskillbrand.com,clothing_store,3.3,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
 Alipolo,alipolo.com,clothing_store,3.3,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
 Vajze,vajze.com,clothing_store,3.3,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
-White Fox Boutique,www.whitefoxboutique.com,clothing_store,3.2,17544,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
-Grailed,grailed.com,clothing_store,3.2,2997,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
-Deuyo,www.deuyo.com,clothing_store,3.2,2171,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
+White Fox Boutique,www.whitefoxboutique.com,clothing_store,3.2,17544,60.9,4.9,2.5,2.9,28.8,2026-07-02 13:24:38
+Grailed,grailed.com,clothing_store,3.2,2997,54.9,5.3,2.7,3.0,34.0,2026-07-02 13:24:38
+Deuyo,www.deuyo.com,clothing_store,3.2,2171,51.6,22.3,5.1,2.4,18.5,2026-07-02 13:24:38
 Fyges,www.fyges.com,clothing_store,3.2,546,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
 Northwrist,www.northwrist.com,clothing_store,3.2,492,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
 Rvogue,www.rvogue.com,clothing_store,3.2,285,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:24:38
@@ -8198,9 +8198,9 @@ Mizon It,mizon-it.com,clothing_store,3.2,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:
 Wevilst,wevilst.com,clothing_store,3.2,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:24
 Jacketbeast,jacketbeast.com,clothing_store,3.2,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:24
 Ftymarket,ftymarket.com,clothing_store,3.2,1,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:30
-Dior US,dior-us.com,clothing_store,3.1,14712,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:30
-Rangerup,rangerup.com,clothing_store,3.1,9998,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:30
-Costume SuperCenter,www.costumesupercenter.com,clothing_store,3.1,5378,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:30
+Dior US,dior-us.com,clothing_store,3.1,14712,76.8,5.5,3.7,3.2,10.7,2026-07-02 13:33:30
+Rangerup,rangerup.com,clothing_store,3.1,9998,83.5,7.1,3.8,2.3,3.3,2026-07-02 13:33:30
+Costume SuperCenter,www.costumesupercenter.com,clothing_store,3.1,5378,55.3,7.4,5.5,5.9,26.0,2026-07-02 13:33:30
 Menweary,www.menweary.com,clothing_store,3.1,1396,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:30
 The Natural Sapphire Company,www.thenaturalsapphirecompany.com,clothing_store,3.1,1216,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:30
 Silverytshirt,silverytshirt.com,clothing_store,3.1,796,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:33:30
@@ -8519,9 +8519,9 @@ Zenarawoman,zenarawoman.com,clothing_store,3.1,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 
 Goodhinget,goodhinget.click,clothing_store,3.1,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:34:57
 masksantafe.com,masksantafe.com,clothing_store,3.1,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
 Thunderridgenaturearena,thunderridgenaturearena.com,clothing_store,3.1,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
-FabKids,fabkids.com,clothing_store,3,12983,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
-Simply Dresses,www.simplydresses.com,clothing_store,3,8143,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
-Metro Swim Shop ,metroswimshop.com,clothing_store,3,1899,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
+FabKids,fabkids.com,clothing_store,3,12983,65.0,12.8,7.3,4.6,10.3,2026-07-02 13:35:03
+Simply Dresses,www.simplydresses.com,clothing_store,3,8143,68.3,12.3,6.7,4.7,8.0,2026-07-02 13:35:03
+Metro Swim Shop ,metroswimshop.com,clothing_store,3,1899,52.8,11.8,8.8,9.7,16.8,2026-07-02 13:35:03
 georgeshop.co.uk,www.georgeshop.co.uk,clothing_store,3,930,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
 Elara Couture,donsucre.com,clothing_store,3,871,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
 Campus Classics,campus-classics.com,clothing_store,3,697,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:35:03
@@ -8874,11 +8874,11 @@ Washington Shoe Company,westernchief.com,clothing_store,3,2,0.0,0.0,0.0,0.0,0.0,
 Style Mafia,stylemafia.us,clothing_store,3,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:41
 Blancaspina,www.blancaspina.com,clothing_store,3,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:41
 Thygarmen,www.thygarmen.com,clothing_store,3,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:41
-GoPupSocks,gopupsocks.com,clothing_store,2.9,29961,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:41
-The Catholic Company,catholiccompany.com,clothing_store,2.9,22663,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:41
-Zolucky,www.zolucky.com,clothing_store,2.9,3978,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:41
-shopfocallure.com,shopfocallure.com,clothing_store,2.9,1967,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:47
-YCMC.com,www.ycmc.com,clothing_store,2.9,1916,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:47
+GoPupSocks,gopupsocks.com,clothing_store,2.9,29961,48.7,7.8,6.7,7.3,29.5,2026-07-02 13:36:41
+The Catholic Company,catholiccompany.com,clothing_store,2.9,22663,85.7,7.8,3.3,1.3,2.0,2026-07-02 13:36:41
+Zolucky,www.zolucky.com,clothing_store,2.9,3978,34.6,12.8,7.4,6.1,39.1,2026-07-02 13:36:41
+shopfocallure.com,shopfocallure.com,clothing_store,2.9,1967,48.9,15.2,7.4,4.7,23.8,2026-07-02 13:36:47
+YCMC.com,www.ycmc.com,clothing_store,2.9,1916,76.5,6.0,2.7,2.3,12.5,2026-07-02 13:36:47
 Watchshopping.com Inc,watchshopping.com,clothing_store,2.9,1137,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:47
 SIDESTEP,sidestep-shoes.com,clothing_store,2.9,551,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:47
 Clothmyths,www.clothmyths.com,clothing_store,2.9,416,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:36:47
@@ -9945,10 +9945,10 @@ Faylunara,www.faylunara.com,clothing_store,2.9,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 
 Zizzisell,zizzisell.shop,clothing_store,2.9,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
 Optionapparel,optionapparel.com,clothing_store,2.9,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
 Dgmayyil,dgmayyil.com,clothing_store,2.9,2,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
-Noracora,noracora.com,clothing_store,2.8,6975,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
-TeeShirt21,teeshirt21.com,clothing_store,2.8,3902,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
-Sephora,www.sephora.com,clothing_store,2.8,3686,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
-Trendia,trendia.co,clothing_store,2.8,3048,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
+Noracora,noracora.com,clothing_store,2.8,6975,25.4,11.4,6.9,5.1,51.2,2026-07-02 13:41:55
+TeeShirt21,teeshirt21.com,clothing_store,2.8,3902,47.3,7.3,6.1,5.9,33.5,2026-07-02 13:41:55
+Sephora,www.sephora.com,clothing_store,2.8,3686,24.9,4.9,3.2,5.3,61.7,2026-07-02 13:41:55
+Trendia,trendia.co,clothing_store,2.8,3048,52.9,13.9,5.2,6.2,21.9,2026-07-02 13:41:55
 Pact,www.wearpact.com,clothing_store,2.8,1619,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
 Toynk Toys,www.toynk.com,clothing_store,2.8,1572,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
 The Black Tux,theblacktux.com,clothing_store,2.8,1397,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:41:55
@@ -10017,12 +10017,12 @@ Conversionh,conversionh.com,clothing_store,2.8,29,0.0,0.0,0.0,0.0,0.0,2026-07-02
 The American Jackets,theamericanjackets.com,clothing_store,2.8,29,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:13
 OptimoRoute,optimoroute.com,courier_service,4.5,134,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
 Forwardme.com,forwardme.com,courier_service,4.3,289,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
-Stackry,stackry.com,courier_service,4.2,14068,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
-Parcel Monkey USA,parcelmonkey.com,courier_service,4.1,12080,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
-Shipito,www.shipito.com,courier_service,4.1,10047,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
-Reship,reship.com,courier_service,3.9,7435,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
+Stackry,stackry.com,courier_service,4.2,14068,70.5,9.0,6.1,3.6,10.7,2026-07-02 13:42:22
+Parcel Monkey USA,parcelmonkey.com,courier_service,4.1,12080,69.4,6.7,3.3,2.5,18.1,2026-07-02 13:42:22
+Shipito,www.shipito.com,courier_service,4.1,10047,66.4,7.6,4.1,3.7,18.2,2026-07-02 13:42:22
+Reship,reship.com,courier_service,3.9,7435,66.2,7.7,5.6,5.2,15.2,2026-07-02 13:42:22
 Schumacher Cargo Logistics,schumachercargo.com,courier_service,3.5,144,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
-MyUS.com,myus.com,courier_service,3.3,12947,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
+MyUS.com,myus.com,courier_service,3.3,12947,58.8,6.5,3.7,4.3,26.7,2026-07-02 13:42:22
 Fast IDP,fastidp.com,courier_service,5,273,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
 Ship A Car Direct,shipacardirect.com,courier_service,4.9,822,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
 Mdrlogisticsuk,mdrlogisticsuk.com,courier_service,4.9,68,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
@@ -10037,11 +10037,11 @@ Acme Couriers,www.acme-couriers.co.uk,courier_service,4.6,22,0.0,0.0,0.0,0.0,0.0
 MO Trucking,www.motruckinginc.com,courier_service,4.6,21,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:22
 Air 1 Moving & Storage,air1moving.com,courier_service,4.6,17,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
 PriorityIDP,priorityidp.com,courier_service,4.5,14,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
-intelcom.ca,intelcom.ca,courier_service,4.4,6920,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
+intelcom.ca,intelcom.ca,courier_service,4.4,6920,63.6,1.6,0.6,0.9,33.2,2026-07-02 13:42:28
 Ex-Freight Zeta,exfreight.com,courier_service,4.4,178,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
 D A-packs,d-a-packs.at,courier_service,4.4,61,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
 Long Island Notary Services,linotaryservices.com,courier_service,4.4,10,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
-Dragonflyshipping,dragonflyshipping.ca,courier_service,4.3,2774,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
+Dragonflyshipping,dragonflyshipping.ca,courier_service,4.3,2774,72.7,1.9,0.5,1.6,23.2,2026-07-02 13:42:28
 Evaluate,evaluate.co.uk,courier_service,4.3,108,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
 Metrobi,metrobi.com,courier_service,4.3,45,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
 A Pronto Delivery,www.a-pronto.com,courier_service,4.3,18,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
@@ -10054,7 +10054,7 @@ Planet Express,planetexpress.com,courier_service,4.2,1664,0.0,0.0,0.0,0.0,0.0,20
 Virtualpostmail,virtualpostmail.com,courier_service,4.2,43,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
 eLogX Solutions,elogx.us,courier_service,4.2,6,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
 National Movers,national-movers.co.uk,courier_service,4.2,6,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
-Veho,shipveho.com,courier_service,4.1,1959,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:28
+Veho,shipveho.com,courier_service,4.1,1959,65.8,2.6,0.7,0.9,29.9,2026-07-02 13:42:28
 Usfreightmasters,usfreightmasters.com,courier_service,4.1,14,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:33
 Catbuy,catbuy.app,courier_service,4.1,11,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:33
 globaleparcel.com,www.globaleparcel.com,courier_service,4.1,6,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:42:33
@@ -10503,8 +10503,8 @@ Xpost,www.xpost.ph,courier_service,1.4,42,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:4
 Dex-i,dex-i.com,courier_service,1.4,40,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
 Webtrack Dhlglobalmail,webtrack.dhlglobalmail.com,courier_service,1.4,39,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
 Heroshe,heroshe.com,courier_service,1.4,36,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
-DHL,www.dhl.nl,courier_service,1.3,30278,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
-Yunexpress,www.yunexpress.com,courier_service,1.3,2576,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
+DHL,www.dhl.nl,courier_service,1.3,30278,5.1,1.3,0.8,2.6,90.2,2026-07-02 13:44:41
+Yunexpress,www.yunexpress.com,courier_service,1.3,2576,8.9,2.1,0.9,1.3,86.8,2026-07-02 13:44:41
 Dhl Express,dhl-express.com,courier_service,1.3,530,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
 Packeta,packeta.com,courier_service,1.3,525,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
 tforcefreight.com,tforcefreight.com,courier_service,1.3,524,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:41
@@ -10523,11 +10523,11 @@ Parcelstogo,parcelstogo.com,courier_service,1.3,67,0.0,0.0,0.0,0.0,0.0,2026-07-0
 Starx Express,starx-express.net,courier_service,1.3,63,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
 Tufnell,tufnell.co.uk,courier_service,1.3,58,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
 qualitypost.com.mx,qualitypost.com.mx,courier_service,1.3,53,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
-Instacart,instacart.com,courier_service,1.2,12020,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
-CTT Express,cttexpress.com,courier_service,1.2,11675,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
-United States Postal Service,www.usps.com,courier_service,1.2,9368,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
-Hermes Versand,hermes-versand.com,courier_service,1.2,4144,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
-Amazonlogistics,amazonlogistics.com,courier_service,1.2,2888,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
+Instacart,instacart.com,courier_service,1.2,12020,3.3,1.0,1.9,4.9,88.9,2026-07-02 13:44:47
+CTT Express,cttexpress.com,courier_service,1.2,11675,4.2,0.6,0.5,0.5,94.2,2026-07-02 13:44:47
+United States Postal Service,www.usps.com,courier_service,1.2,9368,3.0,0.4,0.7,2.3,93.6,2026-07-02 13:44:47
+Hermes Versand,hermes-versand.com,courier_service,1.2,4144,3.9,0.6,0.6,1.6,93.4,2026-07-02 13:44:47
+Amazonlogistics,amazonlogistics.com,courier_service,1.2,2888,4.0,0.7,1.0,3.4,90.8,2026-07-02 13:44:47
 Hermes,www.myhermes.com,courier_service,1.2,1768,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
 Shipping Amazon,shipping.amazon.com,courier_service,1.2,1190,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47
 Cycloon Fietskoeriers,www.cycloon.eu,courier_service,1.2,879,0.0,0.0,0.0,0.0,0.0,2026-07-02 13:44:47

@@ -132,6 +132,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      # Logs API envoyés dans l'index ElasticSearch "api-logs" (vide = stdout seulement)
+      ES_LOGS_URL: http://elasticsearch:9200
     ports:
       - "8000:8000"
     networks:
@@ -162,7 +164,8 @@ services:
   # Identifiants : admin / admin123
   airflow-webserver:
     <<: *airflow-common
-    command: webserver
+    # Supprime le fichier PID laissé par un arrêt brutal (sinon : "Already running on PID")
+    command: bash -c "rm -f /opt/airflow/airflow-webserver.pid && exec airflow webserver"
     ports:
       - "8080:8080"
     depends_on:

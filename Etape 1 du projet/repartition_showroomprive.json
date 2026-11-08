@@ -1,0 +1,16 @@
+{
+  "company_name": "ShowroomPrivé",
+  "company_slug": "showroomprive.com",
+  "source": "https://www.trustpilot.com/review/showroomprive.com",
+  "date_releve": "2026-11-08",
+  "nb_avis_total": 265921,
+  "trustscore": 4.0,
+  "repartition_pct": {
+    "5_etoiles": 39,
+    "4_etoiles": 23,
+    "3_etoiles": 16,
+    "2_etoiles": 9,
+    "1_etoile": 13
+  },
+  "remarque": "Répartition réelle affichée par Trustpilot sur l'ensemble des avis. Elle diffère de celle de nos 592 avis collectés, qui ont été filtrés à raison de 10 pages par nombre d'étoiles pour avoir des exemples de chaque classe."
+}
