@@ -233,6 +233,7 @@ def charger_postgres(**context):
     Stratégie :
     - categorie  : SELECT d'abord, INSERT seulement si elle n'existe pas
     - entreprise : SELECT d'abord sur le slug, INSERT seulement si nouvelle
+                   (catégorie mise à jour si la fiche en donne une autre)
     - statistiques_avis : INSERT à chaque exécution (historique des scraping)
 
     Retourne le nombre de lignes insérées dans statistiques_avis.
@@ -247,7 +248,7 @@ def charger_postgres(**context):
     cur  = conn.cursor()
 
     categories_cache  = {}  # nom → id
-    entreprises_cache = {}  # slug → id
+    entreprises_cache = {}  # slug → (id, categorie_id)
     nb_stats          = 0
 
     for company in companies:
@@ -273,19 +274,26 @@ def charger_postgres(**context):
 
         # ── 2. Entreprise : récupérer ou créer ────────────────────────
         if ent_slug not in entreprises_cache:
-            cur.execute("SELECT id FROM entreprise WHERE slug = %s", (ent_slug,))
+            cur.execute("SELECT id, categorie_id FROM entreprise WHERE slug = %s", (ent_slug,))
             row = cur.fetchone()
             if row:
-                entreprises_cache[ent_slug] = row[0]
+                entreprises_cache[ent_slug] = (row[0], row[1])
             else:
                 cur.execute(
                     "INSERT INTO entreprise (categorie_id, nom, slug) VALUES (%s, %s, %s) RETURNING id",
                     (cat_id, ent_nom, ent_slug)
                 )
-                entreprises_cache[ent_slug] = cur.fetchone()[0]
+                entreprises_cache[ent_slug] = (cur.fetchone()[0], cat_id)
                 print(f"  [postgres] Nouvelle entreprise : {ent_nom} ({ent_slug})")
 
-        ent_id = entreprises_cache[ent_slug]
+        ent_id, ent_cat_id = entreprises_cache[ent_slug]
+
+        # Une entreprise peut apparaître dans deux catégories Trustpilot (3 cas dans le CSV).
+        # Elle garde la catégorie de la dernière fiche lue, comme dans ElasticSearch
+        # (où le slug sert d'identifiant) : les deux bases donnent les mêmes chiffres.
+        if ent_cat_id != cat_id:
+            cur.execute("UPDATE entreprise SET categorie_id = %s WHERE id = %s", (cat_id, ent_id))
+            entreprises_cache[ent_slug] = (ent_id, cat_id)
 
         # ── 3. Statistiques : toujours insérer (historique) ───────────
         cur.execute(

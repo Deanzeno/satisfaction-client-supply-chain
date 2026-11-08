@@ -7,8 +7,9 @@ les colonnes pct_excellent ... pct_bad du CSV étaient donc à 0.
 Ce script ouvre la page de chaque entreprise (https://www.trustpilot.com/review/<slug>),
 lit la répartition des notes (5★ à 1★) et remplit ces colonnes en pourcentage.
 
-Il met à jour les deux CSV du projet :
+Il met à jour les trois copies du CSV dans le projet :
   - Etape 1 du projet/companies_trustpilot.csv
+  - Etape 2/companies_trustpilot.csv        (lu par load_data.py -> PostgreSQL)
   - Etape 5/dags/companies_trustpilot.csv   (lu par le DAG Airflow -> PostgreSQL, ElasticSearch, API)
 
 Usage (Windows, depuis la racine du projet, Chrome installé) :
@@ -28,6 +29,7 @@ import time
 ICI = os.path.dirname(os.path.abspath(__file__))
 RACINE = os.path.abspath(os.path.join(ICI, ".."))
 CSV_ETAPE1 = os.path.join(ICI, "companies_trustpilot.csv")
+CSV_ETAPE2 = os.path.join(RACINE, "Etape 2", "companies_trustpilot.csv")
 CSV_DAG = os.path.join(RACINE, "Etape 5", "dags", "companies_trustpilot.csv")
 RESULTATS = os.path.join(ICI, "repartition_notes.csv")
 COLONNES = ["pct_excellent", "pct_great", "pct_average", "pct_poor", "pct_bad"]   # 5★, 4★, 3★, 2★, 1★
@@ -152,8 +154,8 @@ def sauver_resultats(resultats):
 
 
 def fusionner_dans_les_csv(resultats):
-    """Recopie les pourcentages trouvés dans les deux CSV du projet (les autres lignes ne bougent pas)."""
-    for chemin in (CSV_ETAPE1, CSV_DAG):
+    """Recopie les pourcentages trouvés dans les trois copies du CSV (les autres lignes ne bougent pas)."""
+    for chemin in (CSV_ETAPE1, CSV_ETAPE2, CSV_DAG):
         if not os.path.exists(chemin):
             continue
         lignes = lire_csv(chemin)
