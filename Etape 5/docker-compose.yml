@@ -13,7 +13,7 @@
 #   - Prometheus             (port 9090)
 #   - Grafana                (port 3000)
 #
-# Prérequis — fichier .env à créer à la racine du projet :
+# Prérequis — fichier .env à créer dans ce dossier (Etape 5/), à côté de ce fichier :
 #   POSTGRES_DB=satisfaction_client
 #   POSTGRES_USER=postgres
 #   POSTGRES_PASSWORD=votre_mot_de_passe

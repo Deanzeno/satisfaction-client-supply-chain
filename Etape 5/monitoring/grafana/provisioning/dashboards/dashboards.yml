@@ -1,0 +1,18 @@
+# ════════════════════════════════════════════════════════════════
+# Grafana — Provisioning automatique des dashboards
+# Grafana charge au démarrage tous les fichiers .json de ce dossier
+# (supply-chain-api.json, créé par : python "Etape 5/dashboards.py" export)
+# Supply Chain — Satisfaction des clients
+# Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
+# ════════════════════════════════════════════════════════════════
+
+apiVersion: 1
+
+providers:
+  - name: supply-chain
+    folder: ""
+    type: file
+    disableDeletion: false
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards
