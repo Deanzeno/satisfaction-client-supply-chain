@@ -1,7 +1,7 @@
 # ════════════════════════════════════════════════════════════════
 # GitLab CI/CD — Supply Chain Satisfaction des clients
 # Auteurs : Zineddine HAMZAOUI & Thomas PALISSIER
-# Pipeline : test → build → deploy
+# Pipeline : test → build → deploy (staging éphémère + tests de fumée)
 # ════════════════════════════════════════════════════════════════
 
 stages:
@@ -74,6 +74,7 @@ test:lint:
     - flake8 "Etape 4/main.py" --max-line-length=120 --ignore=E501,W503 || true
     - flake8 "Etape 4/api_logs.py" --max-line-length=120 --ignore=E501,W503 || true
     - flake8 "Etape 5/dags/scraping_dag.py" --max-line-length=120 --ignore=E501,W503 || true
+    - flake8 "Etape 5/init/init_kibana.py" "Etape 5/dashboards.py" --max-line-length=120 --ignore=E501,W503 || true
   allow_failure: true
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "web"'
@@ -105,38 +106,82 @@ build:docker:
 
 # ────────────────────────────────────────────────
 # STAGE 3 : DEPLOY
-# Déploie la stack complète via Docker Compose
-# (déclenchement manuel sur branche main)
+# Déploie l'image qui vient d'être publiée dans un environnement de
+# staging éphémère (PostgreSQL + API, comme dans le docker-compose),
+# puis vérifie qu'elle répond : tests de fumée sur /, /predict,
+# /companies, /stats et /metrics. L'environnement est supprimé à la fin.
 # ────────────────────────────────────────────────
 deploy:staging:
   stage: deploy
-  image: alpine:3.18
-  before_script:
-    - apk add --no-cache docker-compose openssh-client
-  script:
-    - echo "=== Déploiement en staging ==="
-    - 'echo "Image déployée : $DOCKER_IMAGE:$DOCKER_TAG"'
-    - |
-      cat <<EOF
-      ──────────────────────────────────────────
-      Commandes de déploiement sur le serveur :
-      ──────────────────────────────────────────
-        cd satisfaction-client-supply-chain/
-        cp .env Etape\ 5/
-        docker-compose -f "Etape 5/docker-compose.yml" pull
-        docker-compose -f "Etape 5/docker-compose.yml" up -d --remove-orphans
-      ──────────────────────────────────────────
-      Services exposés :
-        - API FastAPI  : http://localhost:8000
-        - Airflow      : http://localhost:8080  (admin/admin123)
-        - Kibana       : http://localhost:5601
-        - Prometheus   : http://localhost:9090
-        - Grafana      : http://localhost:3000  (admin/admin123)
-      EOF
-    - echo "✅ Pipeline CI/CD terminé avec succès"
+  image: docker:24
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+    STAGING_DB: satisfaction_client
+    STAGING_USER: postgres
+    STAGING_PASSWORD: staging_ci
+    API_URL: "http://docker:8000"
   environment:
     name: staging
-    url: http://localhost:8000
+    deployment_tier: staging
+  before_script:
+    - apk add --no-cache curl
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+  script:
+    - echo "=== 1. Base PostgreSQL de staging ==="
+    - docker network create staging
+    - |
+      docker run -d --name postgres --network staging \
+        -e POSTGRES_DB="$STAGING_DB" -e POSTGRES_USER="$STAGING_USER" \
+        -e POSTGRES_PASSWORD="$STAGING_PASSWORD" postgres:15
+    - |
+      # -h localhost : on attend le vrai serveur (TCP), pas le serveur temporaire d'initialisation
+      for i in $(seq 1 30); do
+        docker exec -e PGPASSWORD="$STAGING_PASSWORD" postgres \
+          psql -h localhost -U "$STAGING_USER" -d "$STAGING_DB" -c "SELECT 1" > /dev/null 2>&1 && break
+        echo "  attente de PostgreSQL ($i/30)..."; sleep 2
+      done
+    - |
+      docker exec -i -e PGPASSWORD="$STAGING_PASSWORD" postgres \
+        psql -h localhost -U "$STAGING_USER" -d "$STAGING_DB" -v ON_ERROR_STOP=1 -q < "Etape 2/create_database.sql"
+      docker exec -i -e PGPASSWORD="$STAGING_PASSWORD" postgres \
+        psql -h localhost -U "$STAGING_USER" -d "$STAGING_DB" -v ON_ERROR_STOP=1 -q < "Etape 4/ci_seed_data.sql"
+      echo "Tables créées et jeu de données de test chargé"
+    - echo "=== 2. Déploiement de l'image $DOCKER_IMAGE:$DOCKER_TAG ==="
+    - docker pull "$DOCKER_IMAGE:$DOCKER_TAG"
+    - |
+      docker run -d --name api --network staging -p 8000:8000 \
+        -e POSTGRES_HOST=postgres -e POSTGRES_PORT=5432 \
+        -e POSTGRES_DB="$STAGING_DB" -e POSTGRES_USER="$STAGING_USER" \
+        -e POSTGRES_PASSWORD="$STAGING_PASSWORD" \
+        "$DOCKER_IMAGE:$DOCKER_TAG"
+    - |
+      for i in $(seq 1 30); do
+        curl -sf "$API_URL/" > /dev/null && break
+        echo "  attente de l'API ($i/30)..."; sleep 2
+      done
+    - echo "=== 3. Tests de fumée sur l'API déployée ==="
+    - |
+      curl -sf "$API_URL/" | tee /tmp/racine.json; echo
+      grep -q '"modele_charge":true' /tmp/racine.json
+    - |
+      curl -sf -X POST "$API_URL/predict" -H "Content-Type: application/json" \
+        -d '{"texte": "Tres mauvais service, je ne recommande pas"}' | tee /tmp/predict.json; echo
+      grep -q '"sentiment":"negatif"' /tmp/predict.json
+    - |
+      curl -sf "$API_URL/companies?limit=2" | tee /tmp/companies.json; echo
+      grep -q '"companies"' /tmp/companies.json
+    - |
+      curl -sf "$API_URL/stats" | tee /tmp/stats.json; echo
+      grep -q '"stats_par_categorie"' /tmp/stats.json
+    - |
+      curl -sf "$API_URL/metrics" > /tmp/metrics.txt
+      grep -q 'http_requests_total' /tmp/metrics.txt
+    - |
+      echo "✅ Staging OK : l'image $DOCKER_IMAGE:$DOCKER_TAG est déployée et répond sur les 5 routes"
+  after_script:
+    - docker logs api 2>&1 | tail -n 20 || true
+    - docker rm -f api postgres || true
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-  when: manual

@@ -8,18 +8,17 @@
 #   - ElasticSearch 8        (port 9200)
 #   - Kibana 8               (port 5601)
 #   - FastAPI                (port 8000)
-#   - Airflow Webserver      (port 8080)
-#   - Airflow Scheduler
+#   - Airflow Init / Webserver (port 8080) / Scheduler
 #   - Prometheus             (port 9090)
 #   - Grafana                (port 3000)
+#   - Kibana Init            (charge les avis et les dashboards, puis s'arrête)
 #
-# Prérequis — fichier .env à créer dans ce dossier (Etape 5/), à côté de ce fichier :
+# Prérequis — un seul fichier .env, à la racine du projet (copie de .env.example) :
 #   POSTGRES_DB=satisfaction_client
 #   POSTGRES_USER=postgres
 #   POSTGRES_PASSWORD=votre_mot_de_passe
+# Il est lu par tous les conteneurs (env_file) et par les scripts Python.
 # ════════════════════════════════════════════════════════════════
-
-version: "3.8"
 
 networks:
   supply_chain_network:
@@ -37,8 +36,11 @@ x-airflow-common: &airflow-common
   image: apache/airflow:2.9.1-python3.11
   environment:
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+    # Connexion construite dans le conteneur à partir du .env (pas de mot de passe ici)
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN_CMD: "bash -c 'printf %s postgresql+psycopg2://$$POSTGRES_USER:$$POSTGRES_PASSWORD@postgres:5432/$$POSTGRES_DB'"
     AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    # Le DAG est actif dès le premier démarrage (sinon Airflow le crée en pause)
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
     # Clé partagée par le webserver et le scheduler : sans elle, chaque conteneur
     # génère sa propre clé et l'interface ne peut pas lire les logs en direct (403)
@@ -48,12 +50,11 @@ x-airflow-common: &airflow-common
     # Variables d'environnement transmises au DAG
     POSTGRES_HOST: postgres
     POSTGRES_PORT: "5432"
-    POSTGRES_DB: ${POSTGRES_DB}
-    POSTGRES_USER: ${POSTGRES_USER}
-    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ES_HOST: "http://elasticsearch:9200"
     MODEL_PATH: /opt/airflow/models/sentiment_model.pkl
     VEC_PATH: /opt/airflow/models/vectorizer.pkl
+  env_file:
+    - ../.env
   volumes:
     - ./dags:/opt/airflow/dags
     - airflow_logs:/opt/airflow/logs
@@ -71,10 +72,8 @@ services:
   # ── PostgreSQL 15 ─────────────────────────────────────────────
   postgres:
     image: postgres:15
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - ../.env
     volumes:
       - pg_data:/var/lib/postgresql/data
       # Script SQL de création des tables (Étape 2)
@@ -84,7 +83,7 @@ services:
     networks:
       - supply_chain_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -126,12 +125,11 @@ services:
     build:
       context: "../Etape 4"
       dockerfile: Dockerfile
+    env_file:
+      - ../.env
     environment:
       POSTGRES_HOST: postgres
       POSTGRES_PORT: "5432"
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       # Logs API envoyés dans l'index ElasticSearch "api-logs" (vide = stdout seulement)
       ES_LOGS_URL: http://elasticsearch:9200
     ports:
@@ -222,3 +220,26 @@ services:
       - supply_chain_network
     depends_on:
       - prometheus
+
+  # ── Kibana Init ───────────────────────────────────────────────
+  # Au premier démarrage : crée l'index "reviews" avec les 592 avis et importe
+  # les dashboards Kibana (Etape 2/kibana_saved_objects.ndjson), puis s'arrête.
+  # Aux démarrages suivants, il voit que tout est là et ne touche à rien.
+  kibana-init:
+    image: python:3.11-slim
+    command: ["python", "-u", "/init/init_kibana.py"]
+    environment:
+      ES_URL: http://elasticsearch:9200
+      KIBANA_URL: http://kibana:5601
+      DATA_DIR: /data
+    volumes:
+      - ./init:/init:ro
+      - "../Etape 2:/data:ro"
+    networks:
+      - supply_chain_network
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_started
+    restart: "no"
