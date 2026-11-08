@@ -420,6 +420,8 @@ def sync_elasticsearch(**context):
 
     # ── Créer l'index ES si nécessaire ────────────────────────────────
     mapping = {
+        # Un seul nœud ElasticSearch : pas de réplique, sinon l'index reste "yellow"
+        "settings": {"number_of_replicas": 0},
         "mappings": {
             "properties": {
                 "company_name":  {"type": "text",    "fields": {"keyword": {"type": "keyword"}}},
