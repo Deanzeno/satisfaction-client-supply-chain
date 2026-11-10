@@ -50,6 +50,168 @@ Compter 3 à 5 minutes la première fois (téléchargement des images, démarrag
 | Prometheus | http://localhost:9090 |
 | Grafana | http://localhost:3000 (admin / admin123) |
 
+Le guide ci-dessous détaille chaque étape sous Windows, avec toutes les commandes et les requêtes de démonstration.
+
+---
+
+## Guide pas à pas (Windows, PowerShell)
+
+Suivez les étapes dans l'ordre. Chaque bloc de code se copie tel quel dans PowerShell ; le résultat attendu est écrit juste en dessous. Les étapes 1 à 3 ne se font qu'une seule fois par ordinateur.
+
+### 1. Installer Docker Desktop et Git
+
+Installer [Docker Desktop](https://www.docker.com/products/docker-desktop/) et [Git](https://git-scm.com/download/win), puis redémarrer l'ordinateur.
+
+### 2. Récupérer le projet
+
+```powershell
+cd $HOME\Desktop
+git clone https://github.com/Deanzeno/satisfaction-client-supply-chain.git
+cd satisfaction-client-supply-chain
+```
+
+Le dossier `satisfaction-client-supply-chain` apparaît sur le Bureau.
+
+### 3. Créer le fichier `.env`
+
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+Dans le Bloc-notes, remplacer `ton_mot_de_passe_ici` par un mot de passe de votre choix, puis enregistrer et fermer. Ce fichier reste sur l'ordinateur : il est dans le `.gitignore`, il ne part jamais sur GitHub.
+
+### 4. Lancer le projet
+
+Ouvrir Docker Desktop et attendre « Engine running » en bas à gauche. Puis, dans PowerShell :
+
+```powershell
+cd $HOME\Desktop\satisfaction-client-supply-chain
+git pull
+docker-compose -f "Etape 5/docker-compose.yml" up -d
+```
+
+Compter 1 à 2 minutes (3 à 5 minutes la première fois). À la fin, chaque ligne commence par ✔.
+
+### 5. Vérifier que tout tourne
+
+```powershell
+docker ps -a
+```
+
+Résultat attendu : 8 conteneurs en `Up`, et 2 en `Exited (0)` : `airflow-init` et `kibana-init`. C'est normal : ils préparent le projet puis s'arrêtent, et le 0 veut dire qu'ils ont réussi.
+
+### 6. Ouvrir les pages
+
+| Page | Adresse | Ce qu'on doit voir |
+|------|---------|--------------------|
+| API | http://localhost:8000/docs | 5 routes |
+| Airflow | http://localhost:8080 (admin / admin123) | le DAG `scraping_journalier_trustpilot`, cases vertes |
+| ElasticSearch | http://localhost:9200/_cat/indices?v | 3 index en `green` |
+| Kibana | http://localhost:5601 → Dashboards | « Supply Chain — Satisfaction des clients » et « Supply Chain — Logs de l'API » |
+| Prometheus | http://localhost:9090 → Status → Targets | `fastapi_supply_chain` en `UP` |
+| Grafana | http://localhost:3000 (admin / admin123) → Dashboards | « Supply Chain — Monitoring API » |
+
+### 7. Tester l'API
+
+Dans http://localhost:8000/docs : ouvrir `POST /predict`, cliquer sur **Try it out**, remplacer le texte par celui-ci, puis cliquer sur **Execute**.
+
+```json
+{"texte": "Très mauvais service, je ne recommande pas"}
+```
+
+Réponse attendue : `"sentiment": "negatif"`, `"confiance": 0.64`. Avec `{"texte": "Livraison rapide, produit parfait, je recommande"}`, la réponse est `"positif"`, `0.74`.
+
+Puis ouvrir `GET /stats`, **Try it out**, **Execute** : 9 966 boutiques (`clothing_store`, 3,57 de moyenne), 648 transporteurs (`courier_service`, 2,27) et 47 distributeurs (`atm`, 2,14).
+
+### 8. Prouver que PostgreSQL est rempli
+
+Dans PowerShell, toujours dans le dossier du projet. Si votre `.env` a un autre `POSTGRES_USER`, remplacer `postgres` après `-U`.
+
+Requête 1, le nombre de lignes de chaque table :
+
+```powershell
+docker exec etape5-postgres-1 psql -U postgres -d satisfaction_client -c "SELECT (SELECT COUNT(*) FROM categorie) AS categories, (SELECT COUNT(*) FROM entreprise) AS entreprises, (SELECT COUNT(*) FROM statistiques_avis) AS lignes_statistiques;"
+```
+
+Résultat attendu : `3 | 10661 | …`. La troisième colonne est un multiple de 10 664, car chaque exécution du DAG ajoute une ligne par entreprise (31 992 après 3 exécutions).
+
+Requête 2, une jointure sur les trois tables : les 5 transporteurs les plus commentés.
+
+```powershell
+docker exec etape5-postgres-1 psql -U postgres -d satisfaction_client -c "SELECT e.nom AS transporteur, s.trustscore, s.nb_avis_total FROM (SELECT DISTINCT ON (entreprise_id) * FROM statistiques_avis ORDER BY entreprise_id, id DESC) s JOIN entreprise e ON e.id = s.entreprise_id JOIN categorie c ON c.id = e.categorie_id WHERE c.nom = 'courier_service' ORDER BY s.nb_avis_total DESC LIMIT 5;"
+```
+
+Résultat attendu :
+
+```
+   transporteur    | trustscore | nb_avis_total
+-------------------+------------+---------------
+ DHL               |        1.3 |         30278
+ Stackry           |        4.2 |         14068
+ MyUS.com          |        3.3 |         12947
+ Parcel Monkey USA |        4.1 |         12080
+ Instacart         |        1.2 |         12020
+```
+
+### 9. Prouver qu'ElasticSearch est rempli
+
+Ouvrir la console de Kibana : http://localhost:5601/app/dev_tools#/console. Effacer la partie gauche (Ctrl+A puis Suppr), coller les deux requêtes, puis cliquer sur ▶ à côté de chacune.
+
+```
+GET companies_supply_chain/_search
+{
+  "size": 0,
+  "track_total_hits": true,
+  "aggs": {
+    "par_categorie": {
+      "terms": { "field": "categorie" },
+      "aggs": { "trustscore_moyen": { "avg": { "field": "trustscore" } } }
+    }
+  }
+}
+
+GET reviews/_search
+{
+  "size": 3,
+  "_source": ["nb_etoiles", "titre"],
+  "query": { "match": { "contenu": "delivery" } },
+  "aggs": { "par_note": { "terms": { "field": "nb_etoiles" } } }
+}
+```
+
+Résultats attendus :
+
+- requête 1 : 10 661 entreprises au total ; `clothing_store` 9 966 (moyenne 3,57), `courier_service` 648 (2,27), `atm` 47 (2,14). Les mêmes chiffres que PostgreSQL ;
+- requête 2 : 21 avis contiennent « delivery », dont 13 à une étoile.
+
+### 10. Prometheus et Grafana
+
+Dans Prometheus (http://localhost:9090), onglet **Graph**, taper cette requête puis cliquer sur **Execute** : elle donne le nombre total de requêtes reçues par l'API depuis son démarrage.
+
+```
+sum(http_requests_total)
+```
+
+Dans Grafana (http://localhost:3000), le dashboard « Supply Chain — Monitoring API » montre l'API en ligne, le nombre de requêtes, les erreurs 5xx et le temps de réponse.
+
+### 11. Arrêter le projet
+
+```powershell
+docker-compose -f "Etape 5/docker-compose.yml" stop
+```
+
+Les données sont gardées : l'étape 4 relance tout. Ne pas utiliser `down -v`, qui efface les bases.
+
+### Si quelque chose ne marche pas
+
+| Ce que vous voyez | Ce qu'il faut faire |
+|-------------------|---------------------|
+| `The "POSTGRES_DB" variable is not set` | Vous n'êtes pas dans le bon dossier, ou le `.env` manque. Refaire `cd $HOME\Desktop\satisfaction-client-supply-chain`, puis `Test-Path .env` doit répondre `True`. |
+| `ports are not available` … `9090` | Ouvrir PowerShell en administrateur, taper `net stop winnat` puis `net start winnat`, et relancer l'étape 4. |
+| Un conteneur reste en `Restarting` | Lire son erreur : `docker logs etape5-<nom>-1 --tail 40` (par exemple `etape5-api-1`). |
+| Airflow ou Kibana ne s'ouvre pas | Attendre une minute de plus et recharger la page : ce sont les services les plus lents à démarrer. |
+
 ---
 
 ## Automatisation (Étape 5)
